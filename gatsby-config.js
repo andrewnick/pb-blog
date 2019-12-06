@@ -3,6 +3,8 @@
 const siteConfig = require("./config.js");
 const postCssPlugins = require("./postcss-config.js");
 
+const STRAVA_TOKEN = "your-token";
+
 module.exports = {
   pathPrefix: siteConfig.pathPrefix,
   siteMetadata: {
@@ -205,6 +207,15 @@ module.exports = {
       }
     },
     "gatsby-plugin-flow",
-    "gatsby-plugin-optimize-svgs"
+    "gatsby-plugin-optimize-svgs",
+    {
+      resolve: "gatsby-source-strava",
+      options: {
+        id: process.env.STRAVA_CLIENT_ID,
+        secret: process.env.STRAVA_CLIENT_SECRET,
+        refresh_token: process.env.STRAVA_REFRESH_TOKEN,
+        redirect_uri: process.env.STRAVA_REDIRECT_URI
+      }
+    }
   ]
 };
