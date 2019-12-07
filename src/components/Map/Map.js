@@ -2,8 +2,8 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-const Map = ({ query }) => {
-  console.log(query);
+const Map = () => {
+  //   console.log(query);
 
   return (
     <div>
@@ -12,32 +12,32 @@ const Map = ({ query }) => {
   );
 };
 
-export const query = graphql`
-  query {
-    allStravaActivity {
-      edges {
-        node {
-          id
-          name
-          distance
-          type
-          total_photo_count
-          total_elevation_gain
-          moving_time
-          start_date
-          elapsed_time
-          achievement_count
-          kudos_count
-          comment_count
-          photo_count
-          average_speed
-          max_speed
-          pr_count
-          total_elevation_gain
-        }
-      }
-    }
-  }
-`;
+// export const query = graphql`
+//   query {
+//     allStravaWorkout {
+//       edges {
+//         node {
+//           id
+//           name
+//           distance
+//           type
+//           total_photo_count
+//           total_elevation_gain
+//           moving_time
+//           start_date
+//           elapsed_time
+//           achievement_count
+//           kudos_count
+//           comment_count
+//           photo_count
+//           average_speed
+//           max_speed
+//           pr_count
+//           total_elevation_gain
+//         }
+//       }
+//     }
+//   }
+// `;
 
 export default Map;

@@ -49,7 +49,9 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
     nextPagePath
   } = pageContext;
 
-  const { edges } = data.allMarkdownRemark;
+  console.log(data);
+
+  // const { edges } = data.allMarkdownRemark;
   const pageTitle =
     currentPage > 0 ? `Posts - Page ${currentPage} - ${siteTitle}` : siteTitle;
 
@@ -141,25 +143,11 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
 };
 
 export const query = graphql`
-  query IndexTemplate($postsLimit: Int!, $postsOffset: Int!) {
-    allMarkdownRemark(
-      limit: $postsLimit
-      skip: $postsOffset
-      filter: { frontmatter: { template: { eq: "post" }, draft: { ne: true } } }
-      sort: { order: DESC, fields: [frontmatter___date] }
-    ) {
+  query {
+    allStravaActivityStream {
       edges {
         node {
-          fields {
-            slug
-            categorySlug
-          }
-          frontmatter {
-            title
-            date
-            category
-            description
-          }
+          id
         }
       }
     }
