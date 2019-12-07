@@ -7,6 +7,7 @@ import Feed from "../components/Feed";
 import Page from "../components/Page";
 import Pagination from "../components/Pagination";
 import { useSiteMetadata } from "../hooks";
+import Map from "../components/Map";
 import DeckGL from "@deck.gl/react";
 import { LineLayer } from "@deck.gl/layers";
 import { StaticMap } from "react-map-gl";
@@ -92,6 +93,8 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
   return (
     <Layout title={pageTitle} description={siteSubtitle}>
       <h1>PB's Trip Reports</h1>
+
+      <Map />
       {/* <DeckGL viewState={viewState} layers={layers} /> */}
       {/* <DeckGL
         width="100%"
@@ -114,7 +117,7 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
       ></iframe> */}
 
       {/* <Sidebar isIndex /> */}
-      <DeckGL
+      {/* <DeckGL
         initialViewState={initialViewState}
         controller={true}
         layers={layers}
@@ -123,7 +126,7 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
           scrollZoom={false}
           mapboxApiAccessToken={MAPBOX_ACCESS_TOKEN}
         />
-      </DeckGL>
+      </DeckGL> */}
       {/* <Page>
         <Feed edges={edges} />
         <Pagination
