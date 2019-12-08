@@ -23,15 +23,6 @@ type Props = {
   pageContext: PageContext
 };
 
-// Initial viewport settings
-const initialViewState = {
-  longitude: -122.41669,
-  latitude: 37.7853,
-  zoom: 13,
-  pitch: 0,
-  bearing: 0
-};
-
 const Gdata = [
   {
     sourcePosition: [-122.41669, 37.7853],
@@ -55,58 +46,11 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
   const pageTitle =
     currentPage > 0 ? `Posts - Page ${currentPage} - ${siteTitle}` : siteTitle;
 
-  // Viewport settings
-  // const viewState = {
-  //   longitude: -122.41669,
-  //   latitude: 37.7853,
-  //   zoom: 13,
-  //   pitch: 0,
-  //   bearing: 0
-  // };
-
-  // const gData = [
-  //   {
-  //     sourcePosition: [-122.41669, 37.7853],
-  //     targetPosition: [-122.41669, 37.781]
-  //   }
-  // ];
-
-  // const layers = [
-  //   new LineLayer({
-  //     id: "line-layer",
-  //     gData
-  //   })
-  // ];
-
-  // const scatterplotLayer = new ScatterplotLayer({
-  //   id: "bart-stations",
-  //   data: bartStation,
-  //   getRadius: d => Math.sqrt(d.entries) / 100,
-  //   getPosition: d => d.coordinates,
-  //   getFillColor: [255, 228, 0]
-  // });
-
-  // Set your mapbox access token here
-  const MAPBOX_ACCESS_TOKEN =
-    "pk.eyJ1IjoiYW5kcmV3bmljayIsImEiOiJjazN1b2R5ZHkwYWc2M25teWVpem11NG4yIn0.90W3HLPO7a3P72ksY9lbdw";
-
-  const layers = [new LineLayer({ id: "line-layer", data: Gdata })];
-
   return (
     <Layout title={pageTitle} description={siteSubtitle}>
       <h1>PB's Trip Reports</h1>
 
       <Map />
-      {/* <DeckGL viewState={viewState} layers={layers} /> */}
-      {/* <DeckGL
-        width="100%"
-        height="100%"
-        longitude={-122.4}
-        latitude={37.78}
-        zoom={8}
-        controller={true}
-        layers={[scatterplotLayer]}
-      /> */}
 
       {/* <iframe
         style={{
@@ -119,16 +63,6 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
       ></iframe> */}
 
       {/* <Sidebar isIndex /> */}
-      {/* <DeckGL
-        initialViewState={initialViewState}
-        controller={true}
-        layers={layers}
-      >
-        <StaticMap
-          scrollZoom={false}
-          mapboxApiAccessToken={MAPBOX_ACCESS_TOKEN}
-        />
-      </DeckGL> */}
       {/* <Page>
         <Feed edges={edges} />
         <Pagination
@@ -142,16 +76,17 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
   );
 };
 
-export const query = graphql`
-  query {
-    allStravaActivityStream {
-      edges {
-        node {
-          id
-        }
-      }
-    }
-  }
-`;
+// export const query = graphql`
+//   query {
+//     allStravaActivityStream {
+//       edges {
+//         node {
+//           id
+//           type
+//         }
+//       }
+//     }
+//   }
+// `;
 
 export default IndexTemplate;

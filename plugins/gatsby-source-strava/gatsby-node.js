@@ -1,4 +1,5 @@
 const axios = require("axios");
+const crypto = require("crypto");
 
 const getAccessToken = config => {
   //   console.log(config);
@@ -29,19 +30,6 @@ const processWorkout = (workout, createNodeId, createContentDigest) => {
   });
 };
 
-const processActivityStreamType = (type, createNodeId, createContentDigest) => {
-  return Object.assign({}, type, {
-    id: createNodeId(`strava-${type.id}`),
-    parent: "__SOURCE__",
-    children: [],
-    internal: {
-      type: `StravaActivityStreamType`,
-      content: JSON.stringify(type),
-      contentDigest: createContentDigest(type)
-    }
-  });
-};
-
 exports.sourceNodes = async (
   { actions, createNodeId, createContentDigest },
   configOptions
@@ -63,7 +51,8 @@ exports.sourceNodes = async (
 
   //   return getActivities(strava, createNode, createNodeId, createContentDigest);
   return getActivityStream(
-    "2916113071",
+    // "2916113071",
+    "2918443419",
     strava,
     createNode,
     createNodeId,
@@ -126,19 +115,19 @@ const getActivityStream = async (
       (err, res) => {
         if (err) reject(err);
 
-        // console.log(res);
+        console.log(res);
 
-        createNode({
-          res,
-          id: `Strava Activity: ${res.totalCount}`,
-          parent: null,
-          children: [],
-          internal: {
-            type: `StravaActivityStream`,
-            content: JSON.stringify(res),
-            contentDigest: createContentDigest(res)
-          }
-        });
+        // createNode({
+        //   res,
+        //   id: `Strava Activity: ${res.totalCount}`,
+        //   parent: null,
+        //   children: [],
+        //   internal: {
+        //     type: `StravaActivityStream`,
+        //     content: JSON.stringify(res),
+        //     contentDigest: createContentDigest(res)
+        //   }
+        // });
 
         res.forEach(type => {
           //   console.log(type);
@@ -157,4 +146,26 @@ const getActivityStream = async (
   });
 };
 
-// streams.get(id, params, callback)
+const processActivityStreamType = (type, createNodeId, createContentDigest) => {
+  //   console.log(type);
+  console.log("-----");
+
+  const obj = Object.assign({}, type, {
+    id: createNodeId(`strava-${type.type}`),
+    parent: null,
+    children: [],
+    internal: {
+      type: `StravaActivityStream`,
+      content: JSON.stringify(type),
+      //   contentDigest: createContentDigest(type)
+      contentDigest: crypto
+        .createHash(`md5`)
+        .update(JSON.stringify(type))
+        .digest(`hex`)
+    }
+  });
+
+  console.log(obj);
+
+  return obj;
+};
