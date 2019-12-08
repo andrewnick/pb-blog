@@ -17,6 +17,19 @@ const getAccessToken = config => {
     });
 };
 
+const capitalise = s => {
+  if (typeof s !== "string") return "";
+  return s.charAt(0).toUpperCase() + s.slice(1);
+};
+
+const snakeToCamel = str =>
+  str.replace(/([-_][a-z])/g, group =>
+    group
+      .toUpperCase()
+      .replace("-", "")
+      .replace("_", "")
+  );
+
 const processWorkout = (workout, createNodeId, createContentDigest) => {
   return Object.assign({}, workout, {
     id: createNodeId(`strava-${workout.id}`),
@@ -47,13 +60,23 @@ exports.sourceNodes = async (
     redirect_uri: "pbs-trip-reports.netlify.com"
   });
 
-  //   console.log(strava);
-
-  //   return getActivities(strava, createNode, createNodeId, createContentDigest);
   return getActivityStream(
-    // "2916113071",
-    "2918443419",
+    "2916113071",
+    // "2918443419",
     strava,
+    [
+      "time",
+      "cadence",
+      "distance",
+      "latlng",
+      "heartrate",
+      "temp",
+      "moving",
+      "grade_smooth",
+      "watts",
+      "velocity_smooth",
+      "altitude"
+    ],
     createNode,
     createNodeId,
     createContentDigest
@@ -88,6 +111,7 @@ const getActivities = async (
 const getActivityStream = async (
   id,
   strava,
+  types,
   createNode,
   createNodeId,
   createContentDigest
@@ -98,41 +122,12 @@ const getActivityStream = async (
     strava.activities.streams.get(
       id,
       {
-        types: [
-          "time",
-          "cadence",
-          "distance",
-          "latlng",
-          "heartrate",
-          "temp",
-          "moving",
-          "grade_smooth",
-          "watts",
-          "velocity_smooth",
-          "altitude"
-        ]
+        types
       },
       (err, res) => {
         if (err) reject(err);
 
-        console.log(res);
-
-        // createNode({
-        //   res,
-        //   id: `Strava Activity: ${res.totalCount}`,
-        //   parent: null,
-        //   children: [],
-        //   internal: {
-        //     type: `StravaActivityStream`,
-        //     content: JSON.stringify(res),
-        //     contentDigest: createContentDigest(res)
-        //   }
-        // });
-
         res.forEach(type => {
-          //   console.log(type);
-          //   console.log("--------");
-
           const nodeData = processActivityStreamType(
             type,
             createNodeId,
@@ -147,25 +142,17 @@ const getActivityStream = async (
 };
 
 const processActivityStreamType = (type, createNodeId, createContentDigest) => {
-  //   console.log(type);
-  console.log("-----");
-
-  const obj = Object.assign({}, type, {
+  const obj = {
+    ...type,
     id: createNodeId(`strava-${type.type}`),
     parent: null,
     children: [],
     internal: {
-      type: `StravaActivityStream`,
+      type: `StravaActivityStream${capitalise(snakeToCamel(type.type))}`,
       content: JSON.stringify(type),
-      //   contentDigest: createContentDigest(type)
-      contentDigest: crypto
-        .createHash(`md5`)
-        .update(JSON.stringify(type))
-        .digest(`hex`)
+      contentDigest: createContentDigest(type)
     }
-  });
-
-  console.log(obj);
+  };
 
   return obj;
 };

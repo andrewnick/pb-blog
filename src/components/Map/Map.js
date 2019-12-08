@@ -1,66 +1,35 @@
 // @flow strict
 import React from "react";
-import { graphql } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
 import DeckGL from "@deck.gl/react";
-import { LineLayer, GeoJsonLayer, PathLayer } from "@deck.gl/layers";
-// import { LineLayer } from "@deck.gl/layers";
+import { GeoJsonLayer } from "@deck.gl/layers";
 import { StaticMap } from "react-map-gl";
 import { rgb } from "d3-color";
-import latlngData from "../../utils/latlng";
-import walseyData from "../../utils/walsey";
-import bartgeo from "../../utils/bartgeo";
-import bartlines from "../../utils/bart-lines";
 
 const MAPBOX_ACCESS_TOKEN =
   "pk.eyJ1IjoiYW5kcmV3bmljayIsImEiOiJjazN1b2R5ZHkwYWc2M25teWVpem11NG4yIn0.90W3HLPO7a3P72ksY9lbdw";
 
 const Map = () => {
-  //   console.log(query);
-  //   console.log(latlngData);
-
-  //   const Gdata = [
-  //     {
-  //       sourcePosition: [-122.41669, 37.7853],
-  //       targetPosition: [-122.41669, 37.781]
-  //     }
-  //   ];
-
-  //   const geoData = [
-  //     {
-  //       path: latlngData,
-  //       name: "Walk",
-  //       color: "#ffe800"
-  //     }
-  //   ];
-
-  const pathData = [
-    {
-      path: swapLatLng(latlngData),
-      name: "Walk",
-      color: "#ffe800"
+  const {
+    stravaActivityStreamLatlng: { data }
+  } = useStaticQuery(graphql`
+    query ActivityStreamLatlng {
+      stravaActivityStreamLatlng {
+        data
+        type
+        series_type
+      }
     }
-  ];
-
-  //   const ll = swapLatLng([
-  //     [-43.532971, 172.636801],
-  //     [-43.533016, 172.636785],
-  //     [-43.533072, 172.636769],
-  //     [-43.488855, 172.587447]
-  //   ]);
-
-  //   console.log(ll);
+  `);
 
   const geoData = {
     type: "Feature",
     properties: { name: "Walk", color: "#00aeef" },
     geometry: {
       type: "MultiLineString",
-      coordinates: [swapLatLng(walseyData)]
-      //   coordinates: [swapLatLng(latlngData)]
+      coordinates: [swapLatLng(data)]
     }
   };
-
-  //   console.log(geoData);
 
   const colorToRGBArray = color => {
     if (Array.isArray(color)) {
@@ -73,7 +42,6 @@ const Map = () => {
   const geoLayer = new GeoJsonLayer({
     id: "geojson-layer",
     data: geoData,
-    // data: bartgeo,
     pickable: true,
     stroked: false,
     filled: true,
@@ -93,27 +61,12 @@ const Map = () => {
     // }
   });
 
-  const pathLayer = new PathLayer({
-    id: "path-layer",
-    data: pathData,
-    pickable: true,
-    widthScale: 20,
-    widthMinPixels: 2,
-    getPath: d => d.path,
-    getColor: d => colorToRGBArray(d.color),
-    getWidth: d => 5
-    // onHover: ({ object, x, y }) => {
-    //   const tooltip = object.name;
-    //   /* Update tooltip
-    //      http://deck.gl/#/documentation/developer-guide/adding-interactivity?section=example-display-a-tooltip-for-hovered-object
-    //   */
-    // }
-  });
-
   // Initial viewport settings
   const initialViewState = {
-    latitude: -43.597399,
-    longitude: 172.616482,
+    // latitude: -43.597399,
+    // longitude: 172.616482,
+    latitude: -43.532971,
+    longitude: 172.636801,
     // latitude: 37.893394,
     // longitude: -122.123801,
     // latitude: 172.587447,
@@ -130,7 +83,6 @@ const Map = () => {
         initialViewState={initialViewState}
         controller={true}
         layers={[geoLayer]}
-        // layers={[pathLayer]}
       >
         <StaticMap
           scrollZoom={false}
@@ -140,34 +92,6 @@ const Map = () => {
     </div>
   );
 };
-
-// export const query = graphql`
-//   query {
-//     allStravaWorkout {
-//       edges {
-//         node {
-//           id
-//           name
-//           distance
-//           type
-//           total_photo_count
-//           total_elevation_gain
-//           moving_time
-//           start_date
-//           elapsed_time
-//           achievement_count
-//           kudos_count
-//           comment_count
-//           photo_count
-//           average_speed
-//           max_speed
-//           pr_count
-//           total_elevation_gain
-//         }
-//       }
-//     }
-//   }
-// `;
 
 const swapLatLng = ll => {
   const newLL = ll.map(coord => {
