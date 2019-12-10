@@ -7,8 +7,6 @@ import Feed from "../components/Feed";
 import Page from "../components/Page";
 import Pagination from "../components/Pagination";
 import { useSiteMetadata } from "../hooks";
-import Map from "../components/Map";
-
 import type { PageContext, AllMarkdownRemark } from "../types";
 
 type Props = {
@@ -26,9 +24,7 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
     nextPagePath
   } = pageContext;
 
-  console.log(data);
-
-  // const { edges } = data.allMarkdownRemark;
+  const { edges } = data.allMarkdownRemark;
   const pageTitle =
     currentPage > 0 ? `Posts - Page ${currentPage} - ${siteTitle}` : siteTitle;
 
@@ -36,20 +32,8 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
     <Layout title={pageTitle} description={siteSubtitle}>
       <h1>PB's Trip Reports</h1>
 
-      <Map />
-
-      {/* <iframe
-        style={{
-          width: `${100}%`,
-          height: `${600}px`
-        }}
-        src="https://veloviewer.com/segments/14827864/embed2"
-        frameborder="0"
-        scrolling="no"
-      ></iframe> */}
-
-      {/* <Sidebar isIndex /> */}
-      {/* <Page>
+      <Sidebar isIndex />
+      <Page>
         <Feed edges={edges} />
         <Pagination
           prevPagePath={prevPagePath}
@@ -57,9 +41,35 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
           hasPrevPage={hasPrevPage}
           hasNextPage={hasNextPage}
         />
-      </Page> */}
+      </Page>
     </Layout>
   );
 };
+
+export const query = graphql`
+  query IndexTemplate($postsLimit: Int!, $postsOffset: Int!) {
+    allMarkdownRemark(
+      limit: $postsLimit
+      skip: $postsOffset
+      filter: { frontmatter: { template: { eq: "post" }, draft: { ne: true } } }
+      sort: { order: DESC, fields: [frontmatter___date] }
+    ) {
+      edges {
+        node {
+          fields {
+            slug
+            categorySlug
+          }
+          frontmatter {
+            title
+            date
+            category
+            description
+          }
+        }
+      }
+    }
+  }
+`;
 
 export default IndexTemplate;

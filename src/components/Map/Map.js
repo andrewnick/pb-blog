@@ -71,25 +71,19 @@ const Map = () => {
     // longitude: -122.123801,
     // latitude: 172.587447,
     // longitude: -43.488855,
-    zoom: 14,
+    zoom: 12,
     pitch: 50,
-    bearing: 180
+    bearing: 0
   };
 
   return (
-    <div>
-      <h1>Strava Data</h1>
-      <DeckGL
-        initialViewState={initialViewState}
-        controller={true}
-        layers={[geoLayer]}
-      >
-        <StaticMap
-          scrollZoom={false}
-          mapboxApiAccessToken={MAPBOX_ACCESS_TOKEN}
-        />
-      </DeckGL>
-    </div>
+    <DeckGL
+      height={250}
+      initialViewState={initialViewState}
+      layers={[geoLayer]}
+    >
+      <StaticMap mapboxApiAccessToken={MAPBOX_ACCESS_TOKEN} />
+    </DeckGL>
   );
 };
 
