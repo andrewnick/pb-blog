@@ -50,29 +50,21 @@ const createPages = async ({ graphql, actions }) => {
 
   const { edges } = result.data.allMarkdownRemark;
 
-  const postEdges = edges;
-  // .map(
-  //   edge => edge.node.frontmatter.template === "post"
-  // );
+  const postEdges = edges.filter(
+    edge => edge.node.frontmatter.template === "post"
+  );
 
   const activitiesPromise = await postEdges.map(async edge => {
-    // console.log(edge.node);
     const data = await getStrava(edge.node.frontmatter.activity);
     return {
       data,
       id: edge.node.id
     };
-    // activities.push({
-    //   slug: edge.node.fields.slug,
-    //   activityNum: edge.node.frontmatter.act
-    // });
   });
 
   const activities = await Promise.all(activitiesPromise);
 
-  // const activityData = await getStrava(123422);
   console.log(activities);
-  // console.log(activityData);
 
   _.each(edges, edge => {
     if (_.get(edge, "node.frontmatter.template") === "page") {
@@ -82,14 +74,16 @@ const createPages = async ({ graphql, actions }) => {
         context: { slug: edge.node.fields.slug }
       });
     } else if (_.get(edge, "node.frontmatter.template") === "post") {
-      const aData = activities.find(activity => activity.id === edge.node.id);
-      // console.log(aData.data);
-      // ocactivityData = 1423;
+      const activity = activities.find(
+        activity => activity.id === edge.node.id
+      );
+
+      // console.log(activity);
 
       createPage({
         path: edge.node.fields.slug,
         component: path.resolve("./src/templates/post-template.js"),
-        context: { slug: edge.node.fields.slug, activityData: aData.data }
+        context: { slug: edge.node.fields.slug, activityData: activity.data }
       });
     }
   });

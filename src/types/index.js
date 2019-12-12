@@ -23,7 +23,10 @@ export type PageContext = {
 };
 
 export type ActivityData = {
-  activityData: number[][]
+  activityData: {
+    stream: number[][],
+    activityData: {}
+  }
 };
 
 export type Node = {
