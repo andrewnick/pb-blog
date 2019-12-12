@@ -5,7 +5,7 @@ template: "post"
 draft: false
 slug: "/posts/perfecting-the-art-of-perfection/"
 category: "Design Inspiration"
-activity: 1231234
+activity: "1231234"
 tags:
   - "Handwriting"
   - "Learning to write"

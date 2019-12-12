@@ -5,7 +5,7 @@ template: "post"
 draft: false
 slug: "/posts/the-birth-of-movable-type/"
 category: "Typography"
-activity: 1231234
+activity: "1231234"
 tags:
   - "Open source"
   - "Gatsby"

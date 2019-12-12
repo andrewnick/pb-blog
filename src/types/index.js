@@ -22,6 +22,10 @@ export type PageContext = {
   hasNextPage: boolean
 };
 
+export type ActivityData = {
+  activityData: number[][]
+};
+
 export type Node = {
   fields: {
     slug: string,
@@ -33,7 +37,7 @@ export type Node = {
     description?: string,
     category?: string,
     tags?: string[],
-    activity?: number,
+    activity?: string,
     title: string,
     socialImage?: string
   },

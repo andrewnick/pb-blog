@@ -5,7 +5,7 @@ template: "post"
 draft: false
 slug: "/posts/a-brief-history-of-typography/"
 category: "Design Inspiration"
-activity: 1231234
+activity: "1231234"
 tags:
   - "Linotype"
   - "Monotype"

@@ -9,25 +9,26 @@ import { rgb } from "d3-color";
 const MAPBOX_ACCESS_TOKEN =
   "pk.eyJ1IjoiYW5kcmV3bmljayIsImEiOiJjazN1b2R5ZHkwYWc2M25teWVpem11NG4yIn0.90W3HLPO7a3P72ksY9lbdw";
 
-const Map = () => {
-  const {
-    stravaActivityStreamLatlng: { data }
-  } = useStaticQuery(graphql`
-    query ActivityStreamLatlng {
-      stravaActivityStreamLatlng {
-        data
-        type
-        series_type
-      }
-    }
-  `);
+const Map = ({ activityData }) => {
+  // const {
+  //   stravaActivityStreamLatlng: { data }
+  // } = useStaticQuery(graphql`
+  //   query ActivityStreamLatlng {
+  //     stravaActivityStreamLatlng {
+  //       data
+  //       type
+  //       series_type
+  //     }
+  //   }
+  // `);
+  console.log(activityData);
 
   const geoData = {
     type: "Feature",
     properties: { name: "Walk", color: "#00aeef" },
     geometry: {
       type: "MultiLineString",
-      coordinates: [swapLatLng(data)]
+      coordinates: [swapLatLng(activityData)]
     }
   };
 

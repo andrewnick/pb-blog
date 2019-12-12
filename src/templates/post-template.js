@@ -4,15 +4,18 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import Post from "../components/Post";
 import { useSiteMetadata } from "../hooks";
-import type { MarkdownRemark } from "../types";
+import type { MarkdownRemark, ActivityData } from "../types";
 
 type Props = {
   data: {
     markdownRemark: MarkdownRemark
+  },
+  pageContext: {
+    activityData: ActivityData
   }
 };
 
-const PostTemplate = ({ data }: Props) => {
+const PostTemplate = ({ data, pageContext }: Props) => {
   const { title: siteTitle, subtitle: siteSubtitle } = useSiteMetadata();
   const { frontmatter } = data.markdownRemark;
   const {
@@ -20,6 +23,7 @@ const PostTemplate = ({ data }: Props) => {
     description: postDescription,
     socialImage
   } = frontmatter;
+  const { activityData } = pageContext;
   const metaDescription =
     postDescription !== null ? postDescription : siteSubtitle;
 
@@ -29,7 +33,7 @@ const PostTemplate = ({ data }: Props) => {
       description={metaDescription}
       socialImage={socialImage}
     >
-      <Post post={data.markdownRemark} />
+      <Post post={data.markdownRemark} activityData={activityData} />
     </Layout>
   );
 };
