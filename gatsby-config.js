@@ -85,7 +85,6 @@ module.exports = {
                       }
                       frontmatter {
                         title
-                        activity
                         date
                         template
                         draft
