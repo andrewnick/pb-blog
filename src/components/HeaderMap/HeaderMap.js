@@ -36,7 +36,7 @@ const HeaderMap = ({
 
     const geoData = {
       type: "Feature",
-      properties: { name: "Walk", color: "#fff" },
+      properties: { name: "Walk", color: "#cdfffd" },
       // properties: { name: "Walk", color: "#d2deff" },
       geometry: {
         type: "MultiLineString",
@@ -82,7 +82,7 @@ const HeaderMap = ({
       longitude: cll.lng,
       // zoom: 12.8,
       // pitch: 50,
-      zoom: 11,
+      zoom: 12.5,
       pitch: 40,
       bearing: 0
     };

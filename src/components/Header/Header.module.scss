@@ -5,6 +5,8 @@ $bg-color: #415daf;
 
 .header {
   height: 250px;
+  @include margin-bottom(2);
+
   position: relative;
   display: flex;
   justify-content: center;
@@ -26,8 +28,8 @@ $bg-color: #415daf;
     margin-right: auto;
     font-weight: 600;
     color: #fff;
-    text-align: center;
-    @include line-height(1.65);
+    // text-align: center;
+    @include line-height(2);
     @include margin-top(1);
     @include margin-bottom(0);
     z-index: 1;
