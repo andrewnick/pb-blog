@@ -16,6 +16,10 @@ const ElevationMap = ({
   // console.log(activityData);
   console.log(latlng, altitude);
 
+  if (latlng === undefined) {
+    return null;
+  }
+
   const cll = centreLatLng(latlng);
 
   const pathAlt = addAltitude(swapLatLng(latlng), altitude);
@@ -78,18 +82,6 @@ const ElevationMap = ({
       {/* <StaticMap mapboxApiAccessToken={MAPBOX_ACCESS_TOKEN} /> */}
     </DeckGL>
   );
-};
-
-const buildPathLayerData = path => {
-  [
-    [
-      {
-        path: path,
-        name: "Bike Ride",
-        color: [255, 0, 0]
-      }
-    ]
-  ];
 };
 
 const addAltitude = (latlng, altitude) => {

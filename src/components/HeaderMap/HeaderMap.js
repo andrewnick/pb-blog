@@ -13,7 +13,9 @@ const Map = ({
     stream: { latlng }
   }
 }) => {
-  console.log(latlng);
+  if (latlng === undefined) {
+    return null;
+  }
 
   const cll = centreLatLng(latlng);
 

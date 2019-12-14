@@ -1,8 +1,11 @@
 @import "../../../assets/scss/variables";
 @import "../../../assets/scss/mixins";
 
+$bg-color: #415daf;
+
 .header {
   height: 250px;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,5 +30,13 @@
 
   &__meta {
     z-index: 1;
+  }
+
+  &__default-bg {
+    position: absolute;
+    background-color: $bg-color;
+    top: 0;
+    bottom: 0;
+    width: 100vw;
   }
 }

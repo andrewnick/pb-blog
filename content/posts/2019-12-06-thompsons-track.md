@@ -10,7 +10,7 @@ description: >
   the BOP at a reasonable hour.  The stars are lining up apart from my fitness
   that has slowly deteriorated from Easter.  The fortnightly rides are not
   really enough!
-category: biking
+category: Cycle
 tags:
   - Biking
   - mud

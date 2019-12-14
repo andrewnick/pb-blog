@@ -4,7 +4,7 @@ date: "2017-08-19T22:40:32.169Z"
 template: "post"
 draft: false
 slug: "/posts/humane-typography-in-the-digital-age/"
-category: "Typography"
+category: "Caving"
 activity: "2916113071"
 tags:
   - "Design"

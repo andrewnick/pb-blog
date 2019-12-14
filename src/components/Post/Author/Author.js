@@ -21,7 +21,7 @@ const Author = () => {
           />
         </Link>
       </div>
-      <p className={styles["author__bio"]}>
+      <div className={styles["author__bio"]}>
         <div>
           <strong>{author.name}</strong>
         </div>
@@ -34,7 +34,7 @@ const Author = () => {
         >
            on Twitter
         </a> */}
-      </p>
+      </div>
     </div>
   );
 };

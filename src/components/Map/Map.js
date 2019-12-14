@@ -21,6 +21,10 @@ const Map = ({
   console.log(latlng);
   console.log(activityData);
 
+  if (latlng === undefined) {
+    return null;
+  }
+
   const cll = centreLatLng(latlng);
 
   const geoData = {
