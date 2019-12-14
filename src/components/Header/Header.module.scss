@@ -1,5 +1,5 @@
-@import "../../../assets/scss/variables";
-@import "../../../assets/scss/mixins";
+@import "../../assets/scss/variables";
+@import "../../assets/scss/mixins";
 
 $bg-color: #415daf;
 
@@ -22,7 +22,7 @@ $bg-color: #415daf;
   &__title {
     font-size: $typographic-base-font-size * 3;
     max-width: $layout-post-width;
-    margin-left: auto;
+    // margin-left: auto;
     margin-right: auto;
     font-weight: 600;
     color: #fff;
@@ -31,6 +31,13 @@ $bg-color: #415daf;
     @include margin-top(1);
     @include margin-bottom(0);
     z-index: 1;
+    text-shadow: 2px 1px 18px rgba(0, 0, 0, 0.36);
+
+    &-container {
+      height: 100%;
+      width: 50%;
+      background-color: $bg-color;
+    }
   }
 
   &__meta {

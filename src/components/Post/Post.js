@@ -6,7 +6,7 @@ import Comments from "./Comments";
 import Content from "./Content";
 import Meta from "./Meta";
 import Tags from "./Tags";
-import Header from "./Header";
+import Header from "../Header";
 import Map from "../Map";
 import ElevationMap from "../ElevationMap";
 import styles from "./Post.module.scss";

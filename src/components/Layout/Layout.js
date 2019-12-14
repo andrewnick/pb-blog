@@ -30,12 +30,12 @@ const Layout = ({ children, title, description, socialImage }: Props) => {
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={metaImageUrl} /> */}
+        <link
+          href={`https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.css`}
+          rel="stylesheet"
+        />
       </Helmet>
       {children}
-      <link
-        href={`https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.css`}
-        rel="stylesheet"
-      />
     </div>
   );
 };

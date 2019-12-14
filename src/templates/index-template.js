@@ -6,6 +6,7 @@ import Sidebar from "../components/Sidebar";
 import Feed from "../components/Feed";
 import Page from "../components/Page";
 import Pagination from "../components/Pagination";
+import Header from "../components/Header";
 import { useSiteMetadata } from "../hooks";
 import type { PageContext, AllMarkdownRemark } from "../types";
 
@@ -30,8 +31,7 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
 
   return (
     <Layout title={pageTitle} description={siteSubtitle}>
-      <h1>PB's Trip Reports</h1>
-
+      <Header title={"Pb's trip reports"} activityData={{ stream: {} }} />
       <Sidebar isIndex />
       <Page>
         <Feed edges={edges} />

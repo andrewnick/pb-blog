@@ -72,7 +72,7 @@ const Map = ({
     longitude: cll.lng,
     zoom: 12.8,
     pitch: 50,
-    bearing: 180
+    bearing: 0
   };
 
   return (
