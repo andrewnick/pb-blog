@@ -1,10 +1,11 @@
-@import '../../../assets/scss/variables';
-@import '../../../assets/scss/mixins';
+@import "../../../assets/scss/variables";
+@import "../../../assets/scss/mixins";
 
 .author {
   border-top: 1px solid $color-gray-border;
   max-width: $layout-post-width;
   padding-top: 20px;
+  display: flex;
   @include line-height(1);
   @include margin-top(1);
   @include margin-bottom(2);
@@ -15,6 +16,21 @@
       text-decoration: underline;
     }
   }
+
+  &__subtitle {
+    color: $color-gray;
+    margin-top: 0;
+    @include line-height(1);
+    @include margin-bottom(1);
+  }
+
+  &__photo {
+    display: inline-block;
+    margin-bottom: 0;
+    border-radius: 50%;
+    background-clip: padding-box;
+    margin-right: 20px;
+  }
 }
 
 @include breakpoint-sm {
@@ -22,5 +38,4 @@
     margin-left: auto;
     margin-right: auto;
   }
-
 }
