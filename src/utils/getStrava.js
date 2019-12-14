@@ -37,7 +37,14 @@ const getActivityStream = async (id, strava, types) =>
           reject(err);
         } else {
           const latlng = res.find(stream => stream.type === "latlng");
-          resolve(latlng.data);
+          const distance = res.find(stream => stream.type === "distance");
+          const altitude = res.find(stream => stream.type === "altitude");
+
+          resolve({
+            latlng: latlng.data,
+            distance: distance.data,
+            altitude: altitude.data
+          });
         }
       }
     );
@@ -64,8 +71,8 @@ const getStrava = async activityID => {
     redirect_uri: "pbs-trip-reports.netlify.com"
   });
 
-  let stream = [];
-  let activityData = [];
+  let stream = {};
+  let activityData = {};
 
   if (activityID) {
     try {
@@ -85,7 +92,7 @@ const getStrava = async activityID => {
 
       activityData = await getActivity(activityID, strava);
     } catch (e) {
-      stream = [];
+      stream = {};
       activityData = {};
     }
   }

@@ -26,7 +26,6 @@ const PostTemplate = ({ data, pageContext }: Props) => {
   const { activityData } = pageContext;
   const metaDescription =
     postDescription !== null ? postDescription : siteSubtitle;
-  // console.log(activityData);
 
   return (
     <Layout

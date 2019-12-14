@@ -24,7 +24,7 @@ export type PageContext = {
 
 export type ActivityData = {
   activityData: {
-    stream: number[][],
+    stream: {},
     activityData: {}
   }
 };

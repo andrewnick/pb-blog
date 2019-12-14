@@ -1,31 +1,25 @@
 // @flow strict
 import React from "react";
 import DeckGL from "@deck.gl/react";
-import { MapView, MapController } from "@deck.gl/core";
-import ReactMapGL, { NavigationControl } from "react-map-gl";
-
 import { GeoJsonLayer } from "@deck.gl/layers";
 import { StaticMap } from "react-map-gl";
 import { rgb } from "d3-color";
-import styles from "./Map.module.scss";
 
 const MAPBOX_ACCESS_TOKEN =
   "pk.eyJ1IjoiYW5kcmV3bmljayIsImEiOiJjazN1b2R5ZHkwYWc2M25teWVpem11NG4yIn0.90W3HLPO7a3P72ksY9lbdw";
 
 const Map = ({
   activityData: {
-    stream: { latlng },
-    activityData
+    stream: { latlng }
   }
 }) => {
   console.log(latlng);
-  console.log(activityData);
 
   const cll = centreLatLng(latlng);
 
   const geoData = {
     type: "Feature",
-    properties: { name: "Walk", color: "#00aeef" },
+    properties: { name: "Walk", color: "#d2deff" },
     geometry: {
       type: "MultiLineString",
       coordinates: [swapLatLng(latlng)]
@@ -48,12 +42,12 @@ const Map = ({
     filled: true,
     extruded: true,
     lineWidthScale: 20,
-    lineWidthMinPixels: 2,
+    lineWidthMinPixels: 4,
     getFillColor: [160, 160, 180, 200],
     getLineColor: d => colorToRGBArray(d.properties.color),
     getRadius: 100,
     getLineWidth: 1,
-    getElevation: 50
+    getElevation: 30
     // onHover: ({ object, x, y }) => {
     //   const tooltip = object.properties.name || object.properties.station;
     //   /* Update tooltip
@@ -72,64 +66,17 @@ const Map = ({
   };
 
   return (
-    <div className={styles["map"]}>
-      <div className={styles["map__map"]}>
-        <DeckGL
-          width="100%"
-          height="30vw"
-          minHeight="100px"
-          controller={true}
-          initialViewState={initialViewState}
-          layers={[geoLayer]}
-        >
-          <ReactMapGL
-            width="100%"
-            height="30vw"
-            mapStyle={"mapbox://styles/mapbox/outdoors-v11"}
-            mapboxApiAccessToken={MAPBOX_ACCESS_TOKEN}
-          >
-            <div style={{ position: "absolute", right: 8, top: 8 }}>
-              <NavigationControl />
-            </div>
-          </ReactMapGL>
-        </DeckGL>
-      </div>
-
-      {activityData && (
-        <div className={styles["map__meta"]}>
-          <div className={styles["map__meta__detail"]}>
-            <span className={styles["map__meta__detail__title"]}>
-              Distance:
-            </span>
-            <span className={styles["map__meta__detail__value"]}>
-              {activityData.distance}m
-            </span>
-          </div>
-          <div className={styles["map__meta__detail"]}>
-            <span className={styles["map__meta__detail__title"]}>
-              Total Elevation Gain:
-            </span>
-            {activityData.total_elevation_gain}m
-          </div>
-          <div className={styles["map__meta__detail"]}>
-            <span className={styles["map__meta__detail__title"]}>
-              Max Speed:
-            </span>
-            <span className={styles["map__meta__detail__value"]}>
-              {activityData.max_speed}km/hr
-            </span>
-          </div>
-          <div className={styles["map__meta__detail"]}>
-            <span className={styles["map__meta__detail__title"]}>
-              Average Speed:
-            </span>
-            <span className={styles["map__meta__detail__value"]}>
-              {activityData.average_speed}km/hr
-            </span>
-          </div>
-        </div>
-      )}
-    </div>
+    <DeckGL
+      height={250}
+      // controller={true}
+      initialViewState={initialViewState}
+      layers={[geoLayer]}
+    >
+      <StaticMap
+        mapStyle={"mapbox://styles/andrewnick/ck45eszle09lx1cpdvqg9owoi"}
+        mapboxApiAccessToken={MAPBOX_ACCESS_TOKEN}
+      />
+    </DeckGL>
   );
 };
 
