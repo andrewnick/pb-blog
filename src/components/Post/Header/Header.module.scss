@@ -12,6 +12,11 @@ $bg-color: #415daf;
 
   &__map {
     font-style: italic;
+    position: absolute;
+    background-color: $bg-color;
+    top: 0;
+    bottom: 0;
+    width: 100vw;
   }
 
   &__title {
@@ -38,5 +43,6 @@ $bg-color: #415daf;
     top: 0;
     bottom: 0;
     width: 100vw;
+    z-index: -1;
   }
 }

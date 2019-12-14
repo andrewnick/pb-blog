@@ -10,10 +10,11 @@ const Header = ({ title, activityData }) => {
 
   return (
     <div className={styles["header"]}>
-      {Object.keys(activityData.stream).length === 0 ? (
-        <HeaderDefaultBackground />
-      ) : (
-        <HeaderMap activityData={activityData} />
+      <HeaderDefaultBackground />
+      {Object.keys(activityData.stream).length !== 0 && (
+        <div className={styles["header__map"]}>
+          <HeaderMap activityData={activityData} />
+        </div>
       )}
       <h1 className={styles["header__title"]}>{title}</h1>
     </div>
