@@ -1,6 +1,5 @@
 // @flow strict
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
 import DeckGL from "@deck.gl/react";
 import { GeoJsonLayer } from "@deck.gl/layers";
 import { StaticMap } from "react-map-gl";
@@ -10,25 +9,16 @@ const MAPBOX_ACCESS_TOKEN =
   "pk.eyJ1IjoiYW5kcmV3bmljayIsImEiOiJjazN1b2R5ZHkwYWc2M25teWVpem11NG4yIn0.90W3HLPO7a3P72ksY9lbdw";
 
 const Map = ({ activityData }) => {
-  // const {
-  //   stravaActivityStreamLatlng: { data }
-  // } = useStaticQuery(graphql`
-  //   query ActivityStreamLatlng {
-  //     stravaActivityStreamLatlng {
-  //       data
-  //       type
-  //       series_type
-  //     }
-  //   }
-  // `);
   console.log(activityData);
+
+  const cll = centreLatLng(activityData.stream);
 
   const geoData = {
     type: "Feature",
     properties: { name: "Walk", color: "#00aeef" },
     geometry: {
       type: "MultiLineString",
-      coordinates: [swapLatLng(activityData)]
+      coordinates: [swapLatLng(activityData.stream)]
     }
   };
 
@@ -64,22 +54,17 @@ const Map = ({ activityData }) => {
 
   // Initial viewport settings
   const initialViewState = {
-    // latitude: -43.597399,
-    // longitude: 172.616482,
-    latitude: -43.532971,
-    longitude: 172.636801,
-    // latitude: 37.893394,
-    // longitude: -122.123801,
-    // latitude: 172.587447,
-    // longitude: -43.488855,
-    zoom: 12,
+    latitude: cll.lat,
+    longitude: cll.lng,
+    zoom: 12.8,
     pitch: 50,
-    bearing: 0
+    bearing: 180
   };
 
   return (
     <DeckGL
       height={250}
+      controller={true}
       initialViewState={initialViewState}
       layers={[geoLayer]}
     >
@@ -93,6 +78,32 @@ const swapLatLng = ll => {
     return [coord[1], coord[0]];
   });
   return newLL;
+};
+
+const centreLatLng = stream => {
+  const lat = stream.map(latlng => latlng[0]);
+  const lng = stream.map(latlng => latlng[1]);
+
+  const maxLng = lng.reduce((accumulator, currentValue) => {
+    return accumulator > currentValue ? accumulator : currentValue;
+  });
+
+  const maxLat = lat.reduce((accumulator, currentValue) => {
+    return accumulator > currentValue ? accumulator : currentValue;
+  });
+
+  const minLng = lng.reduce((accumulator, currentValue) => {
+    return accumulator < currentValue ? accumulator : currentValue;
+  });
+
+  const minLat = lat.reduce((accumulator, currentValue) => {
+    return accumulator < currentValue ? accumulator : currentValue;
+  });
+
+  const centreLat = (maxLat - minLat) / 2 + minLat;
+  const centreLng = (maxLng - minLng) / 2 + minLng;
+
+  return { lat: centreLat, lng: centreLng };
 };
 
 export default Map;

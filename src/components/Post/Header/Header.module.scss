@@ -23,4 +23,8 @@
     @include margin-bottom(0);
     z-index: 1;
   }
+
+  &__meta {
+    z-index: 1;
+  }
 }
