@@ -1,10 +1,10 @@
 ---
 template: post
 title: Thompson's Track
+activity: '2916113071'
 slug: thompsons-track
 draft: false
 date: 2019-06-29T10:18:27.636Z
-activity: "2918443419"
 description: >
   Saturday’s forecast is good for biking and Glenys has a meeting in Katikati in
   the BOP at a reasonable hour.  The stars are lining up apart from my fitness
