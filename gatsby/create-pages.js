@@ -38,6 +38,12 @@ const createPages = async ({ graphql, actions }) => {
     component: path.resolve("./src/templates/categories-list-template.js")
   });
 
+  // Auth template
+  createPage({
+    path: "/auth",
+    component: path.resolve("./src/templates/auth-template.js")
+  });
+
   // Posts and pages from markdown
   const result = await graphql(`
     {

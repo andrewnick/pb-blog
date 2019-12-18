@@ -27,10 +27,6 @@ const Layout = ({ children, title, description, socialImage }: Props) => {
         <meta name="description" content={description} />
         <meta property="og:site_name" content={title} />
         <meta property="og:image" content={metaImageUrl} />
-        {/* <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={metaImageUrl} /> */}
         <link
           href={
             "https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.css"
@@ -38,8 +34,7 @@ const Layout = ({ children, title, description, socialImage }: Props) => {
           rel="stylesheet"
         />
       </Helmet>
-      <Link to="/">Authenticate</Link>
-      {/* {children} */}
+      {children}
     </div>
   );
 };
