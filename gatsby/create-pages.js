@@ -2,14 +2,24 @@
 
 const path = require("path");
 const _ = require("lodash");
+const dotenv = require("dotenv");
 const createCategoriesPages = require("./pagination/create-categories-pages.js");
 const createTagsPages = require("./pagination/create-tags-pages.js");
 const createPostsPages = require("./pagination/create-posts-pages.js");
-const getStrava = require("../src/utils/getStrava");
+const { getStrava, getData } = require("../src/utils/getStrava");
+
+dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
+
+const stravaConfig = {
+  clientId: process.env.STRAVA_CLIENT_ID,
+  clientSecret: process.env.STRAVA_CLIENT_SECRET,
+  refreshToken: process.env.STRAVA_REFRESH_TOKEN,
+  redirectURI: process.env.STRAVA_REDIRECT_URI,
+  authCode: process.env.STRAVA_CODE
+};
 
 const createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
-
   // 404
   createPage({
     path: "/404",
@@ -54,8 +64,10 @@ const createPages = async ({ graphql, actions }) => {
     edge => edge.node.frontmatter.template === "post"
   );
 
+  const strava = await getStrava(stravaConfig);
+
   const activitiesPromise = await postEdges.map(async edge => {
-    const data = await getStrava(edge.node.frontmatter.activity);
+    const data = await getData(strava, edge.node.frontmatter.activity);
     return {
       data,
       id: edge.node.id
@@ -77,8 +89,6 @@ const createPages = async ({ graphql, actions }) => {
       const activity = activities.find(
         activity => activity.id === edge.node.id
       );
-
-      // console.log(activity);
 
       createPage({
         path: edge.node.fields.slug,

@@ -1,17 +1,31 @@
 const axios = require("axios");
 
-const getAccessToken = () =>
+const getAccessToken = ({ clientId, clientSecret, refreshToken }) =>
   axios
     .post("https://www.strava.com/oauth/token", {
-      grant_type: "authorization_code",
-      code: "7212792ddb8041fdaa8bcfaae5e871f3eb31dc86",
-      //   refresh_token: "0280d40d28ebea1b4d41261b348474b7c304a270",
-      client_id: "41405",
-      client_secret: "445b3a4945372f6e56d877ae7efafcfcf54e340e"
+      grant_type: "refresh_token",
+      refresh_token: refreshToken,
+      client_id: clientId,
+      client_secret: clientSecret
     })
     .catch(err => {
       throw err;
     });
+
+// const getAccessToken = ({ clientId, clientSecret, authCode }) =>
+//   axios
+//     .post("https://www.strava.com/oauth/token", {
+//       grant_type: "authorization_code",
+//       code: authCode,
+//       client_id: clientId,
+//       client_secret: clientSecret
+//     })
+//     .catch(err => {
+//       console.log(err.response.data.errors);
+
+//       throw err;
+//     });
+
 const capitalise = s => {
   if (typeof s !== "string") return "";
   return s.charAt(0).toUpperCase() + s.slice(1);
@@ -61,16 +75,21 @@ const getActivity = async (id, strava) =>
     });
   });
 
-const getStrava = async activityID => {
-  const response = await getAccessToken();
+const getStrava = async stravaConfig => {
+  const { clientId, clientSecret, redirectURI } = stravaConfig;
+  const response = await getAccessToken(stravaConfig);
 
-  const strava = require("strava")({
+  console.log({ clientId, clientSecret, redirectURI });
+
+  return require("strava")({
     access_token: response.data.access_token,
-    client_id: "41405",
-    client_secret: "445b3a4945372f6e56d877ae7efafcfcf54e340e",
-    redirect_uri: "pbs-trip-reports.netlify.com"
+    client_id: clientId,
+    client_secret: clientSecret,
+    redirect_uri: redirectURI
   });
+};
 
+const getData = async (strava, activityID) => {
   let stream = {};
   let activityData = {};
 
@@ -103,4 +122,7 @@ const getStrava = async activityID => {
   };
 };
 
-module.exports = getStrava;
+module.exports = {
+  getStrava,
+  getData
+};

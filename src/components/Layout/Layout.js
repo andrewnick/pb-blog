@@ -1,8 +1,9 @@
 // @flow strict
 import React from "react";
 import Helmet from "react-helmet";
-import { withPrefix } from "gatsby";
+import { withPrefix, Link } from "gatsby";
 import type { Node as ReactNode } from "react";
+
 import { useSiteMetadata } from "../../hooks";
 import styles from "./Layout.module.scss";
 
@@ -31,11 +32,14 @@ const Layout = ({ children, title, description, socialImage }: Props) => {
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={metaImageUrl} /> */}
         <link
-          href={`https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.css`}
+          href={
+            "https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.css"
+          }
           rel="stylesheet"
         />
       </Helmet>
-      {children}
+      <Link to="/">Authenticate</Link>
+      {/* {children} */}
     </div>
   );
 };
