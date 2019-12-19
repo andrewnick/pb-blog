@@ -1,37 +1,47 @@
+@import "../../assets/scss/variables";
+@import "../../assets/scss/mixins";
+
 .map {
   display: flex;
+  flex-wrap: wrap;
   padding: 4rem;
+
+  max-width: $layout-post-width;
+  margin-left: auto;
+  margin-right: auto;
 
   &__map {
     height: 30vw;
     min-height: 100px;
-    flex: 0 0 60%;
+    flex: 0 0 100%;
     position: relative;
   }
 
   &__meta {
-    flex: 0 0 40%;
-    padding: 1.25rem;
+    flex: 0 0 100%;
+    border-top: 1px solid darkgrey;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
+    padding: 10px 0;
+    border-top: 1px solid grey;
 
     &__detail {
       font-size: 14px;
       display: flex;
-      justify-content: center;
-      align-items: center;
       flex-direction: column;
       padding: 1rem;
 
+      &:first-child {
+        padding-left: 0;
+      }
+
       &__title {
-        font-size: 16px;
-        font-weight: 600;
+        font-size: 12px;
       }
 
       &__value {
-        font-size: 14px;
+        font-size: 22px;
+        line-height: 1;
       }
     }
   }

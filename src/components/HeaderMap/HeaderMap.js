@@ -6,9 +6,6 @@ import { GeoJsonLayer } from "@deck.gl/layers";
 import { StaticMap } from "react-map-gl";
 import { rgb } from "d3-color";
 
-const MAPBOX_ACCESS_TOKEN =
-  "pk.eyJ1IjoiYW5kcmV3bmljayIsImEiOiJjazN1b2R5ZHkwYWc2M25teWVpem11NG4yIn0.90W3HLPO7a3P72ksY9lbdw";
-
 const HeaderMap = ({
   activityData: {
     stream: { latlng }
@@ -119,7 +116,8 @@ const HeaderMap = ({
       <StaticMap
         // mapStyle={"mapbox://styles/andrewnick/ck45eszle09lx1cpdvqg9owoi"}
         mapStyle={"mapbox://styles/andrewnick/ck45eszle09lx1cpdvqg9owoi/draft"}
-        mapboxApiAccessToken={MAPBOX_ACCESS_TOKEN}
+        // mapStyle={"mapbox://styles/andrewnick/ck4da0zyw01b41do04zg7qx0w/draft"}
+        mapboxApiAccessToken={process.env.GATSBY_MAPBOX_ACCESS_TOKEN}
       />
     </DeckGL>
   );

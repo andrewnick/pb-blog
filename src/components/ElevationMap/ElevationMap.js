@@ -5,9 +5,6 @@ import { GeoJsonLayer, PathLayer } from "@deck.gl/layers";
 import { StaticMap } from "react-map-gl";
 import { rgb } from "d3-color";
 
-const MAPBOX_ACCESS_TOKEN =
-  "pk.eyJ1IjoiYW5kcmV3bmljayIsImEiOiJjazN1b2R5ZHkwYWc2M25teWVpem11NG4yIn0.90W3HLPO7a3P72ksY9lbdw";
-
 const ElevationMap = ({
   activityData: {
     stream: { latlng, altitude }
@@ -79,7 +76,7 @@ const ElevationMap = ({
       initialViewState={initialViewState}
       layers={[geoLayer]}
     >
-      {/* <StaticMap mapboxApiAccessToken={MAPBOX_ACCESS_TOKEN} /> */}
+      {/* <StaticMap mapboxApiAccessToken={process.env.GATSBY_MAPBOX_ACCESS_TOKEN} /> */}
     </DeckGL>
   );
 };

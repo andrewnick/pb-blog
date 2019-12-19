@@ -9,18 +9,12 @@ import { StaticMap } from "react-map-gl";
 import { rgb } from "d3-color";
 import styles from "./Map.module.scss";
 
-const MAPBOX_ACCESS_TOKEN =
-  "pk.eyJ1IjoiYW5kcmV3bmljayIsImEiOiJjazN1b2R5ZHkwYWc2M25teWVpem11NG4yIn0.90W3HLPO7a3P72ksY9lbdw";
-
 const Map = ({
   activityData: {
     stream: { latlng },
     activityData
   }
 }) => {
-  console.log(latlng);
-  console.log(activityData);
-
   if (latlng === undefined) {
     return null;
   }
@@ -77,6 +71,40 @@ const Map = ({
 
   return (
     <div className={styles["map"]}>
+      {activityData && (
+        <div className={styles["map__meta"]}>
+          <div className={styles["map__meta__detail"]}>
+            <span className={styles["map__meta__detail__value"]}>
+              {activityData.distance} m
+            </span>
+            <span className={styles["map__meta__detail__title"]}>Distance</span>
+          </div>
+          <div className={styles["map__meta__detail"]}>
+            <span className={styles["map__meta__detail__value"]}>
+              {activityData.total_elevation_gain} m
+            </span>
+            <span className={styles["map__meta__detail__title"]}>
+              Total Elevation Gain
+            </span>
+          </div>
+          <div className={styles["map__meta__detail"]}>
+            <span className={styles["map__meta__detail__value"]}>
+              {activityData.max_speed} km/h
+            </span>
+            <span className={styles["map__meta__detail__title"]}>
+              Max Speed
+            </span>
+          </div>
+          <div className={styles["map__meta__detail"]}>
+            <span className={styles["map__meta__detail__value"]}>
+              {activityData.average_speed} km/h
+            </span>
+            <span className={styles["map__meta__detail__title"]}>
+              Average Speed
+            </span>
+          </div>
+        </div>
+      )}
       <div className={styles["map__map"]}>
         <DeckGL
           width="100%"
@@ -90,7 +118,7 @@ const Map = ({
             width="100%"
             height="30vw"
             mapStyle={"mapbox://styles/mapbox/outdoors-v11"}
-            mapboxApiAccessToken={MAPBOX_ACCESS_TOKEN}
+            mapboxApiAccessToken={process.env.GATSBY_MAPBOX_ACCESS_TOKEN}
           >
             <div style={{ position: "absolute", right: 8, top: 8 }}>
               <NavigationControl />
@@ -98,41 +126,6 @@ const Map = ({
           </ReactMapGL>
         </DeckGL>
       </div>
-
-      {activityData && (
-        <div className={styles["map__meta"]}>
-          <div className={styles["map__meta__detail"]}>
-            <span className={styles["map__meta__detail__title"]}>
-              Distance:
-            </span>
-            <span className={styles["map__meta__detail__value"]}>
-              {activityData.distance}m
-            </span>
-          </div>
-          <div className={styles["map__meta__detail"]}>
-            <span className={styles["map__meta__detail__title"]}>
-              Total Elevation Gain:
-            </span>
-            {activityData.total_elevation_gain}m
-          </div>
-          <div className={styles["map__meta__detail"]}>
-            <span className={styles["map__meta__detail__title"]}>
-              Max Speed:
-            </span>
-            <span className={styles["map__meta__detail__value"]}>
-              {activityData.max_speed}km/hr
-            </span>
-          </div>
-          <div className={styles["map__meta__detail"]}>
-            <span className={styles["map__meta__detail__title"]}>
-              Average Speed:
-            </span>
-            <span className={styles["map__meta__detail__value"]}>
-              {activityData.average_speed}km/hr
-            </span>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
