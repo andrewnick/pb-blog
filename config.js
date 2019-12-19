@@ -1,13 +1,13 @@
 "use strict";
 
 module.exports = {
-  url: "https://lumen.netlify.com",
+  url: "https://pbs-trip-reports.netlify.com",
   pathPrefix: "/",
   title: "Blog by Peter Bichan",
   subtitle: "I like riding bikes.",
   copyright: "© All rights reserved.",
   disqusShortname: "",
-  postsPerPage: 4,
+  postsPerPage: 15,
   googleAnalyticsId: "",
   useKatex: false,
   menu: [
