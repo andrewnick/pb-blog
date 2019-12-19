@@ -8,8 +8,8 @@ const Auth = () => {
   const getCode = paramHash =>
     paramHash && paramHash.code ? paramHash.code : "";
 
-  const clientID = process.env.STRAVA_CLIENT_ID;
-  const redirectUri = process.env.STRAVA_REDIRECT_URI;
+  const clientID = process.env.GATSBY_STRAVA_CLIENT_ID;
+  const redirectUri = process.env.GATSBY_STRAVA_REDIRECT_URI;
   const scope = "read_all,activity:read_all";
   const responseType = "code";
 
@@ -18,7 +18,6 @@ const Auth = () => {
       {({ location, navigate }) =>
         location.search ? (
           <div>
-            <p>{process.env.STRAVA_REFRESH_TOKEN} </p>
             <h3>Code: {getCode(queryString.parse(location.search))} </h3>
             <h4>
               Next Step:{" "}

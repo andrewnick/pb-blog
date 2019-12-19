@@ -11,11 +11,11 @@ const { getStrava, getData } = require("../src/utils/getStrava");
 dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 
 const stravaConfig = {
-  clientId: process.env.STRAVA_CLIENT_ID,
-  clientSecret: process.env.STRAVA_CLIENT_SECRET,
-  refreshToken: process.env.STRAVA_REFRESH_TOKEN,
-  redirectURI: process.env.STRAVA_REDIRECT_URI,
-  authCode: process.env.STRAVA_CODE
+  clientId: process.env.GATSBY_STRAVA_CLIENT_ID,
+  clientSecret: process.env.GATSBY_STRAVA_CLIENT_SECRET,
+  refreshToken: process.env.GATSBY_STRAVA_REFRESH_TOKEN,
+  redirectURI: process.env.GATSBY_STRAVA_REDIRECT_URI,
+  authCode: process.env.GATSBY_STRAVA_CODE
 };
 
 const createPages = async ({ graphql, actions }) => {
