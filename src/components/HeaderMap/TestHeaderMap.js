@@ -28,8 +28,33 @@ const HeaderMap = ({
     bearing: 0
   };
 
+  const { lat, lng } = latLngArray(latlng);
+  const maxLL = maxLatLng(lat, lng);
+  const minLL = minLatLng(lat, lng);
+
   const layers = [];
-  let viewport = {};
+  // let viewport = new WebMercatorViewport({
+  //   width: 300,
+  //   height: 250
+  // }).fitBounds(
+  //   [
+  //     [minLL.lng, minLL.lat],
+  //     [maxLL.lng, maxLL.lat]
+  //   ],
+  //   {
+  //     padding: 20,
+  //     offset: [0, -100]
+  //   }
+  // );
+
+  // const viewport = new WebMercatorViewport({
+  //   height: 250,
+  //   latitude: cambridgeLL.lat,
+  //   longitude: cambridgeLL.lng,
+  //   zoom: 7,
+  //   pitch: 40,
+  //   bearing: 0
+  // });
 
   if (latlng !== undefined) {
     const cll = centreLatLng(latlng);
@@ -76,26 +101,13 @@ const HeaderMap = ({
 
     layers.push(geoLayer);
 
-    const { lat, lng } = latLngArray(latlng);
-    const maxLL = maxLatLng(lat, lng);
-    const minLL = minLatLng(lat, lng);
-
-    const zoom = haversineDistance(
-      maxLL.lat,
-      maxLL.lng,
-      minLL.lat,
-      minLL.lng,
-      "N"
-    );
-    console.log(zoom);
-
     // Initial viewport settings
     initialViewState = {
       latitude: cll.lat,
       longitude: cll.lng,
-      zoom: 11,
+      // zoom: 12.8,
       // pitch: 50,
-      // zoom: zoom / 0,
+      zoom: 12.5,
       pitch: 0,
       bearing: 0
     };
@@ -104,26 +116,26 @@ const HeaderMap = ({
     // const maxLL = maxLatLng(lat, lng);
     // const minLL = minLatLng(lat, lng);
 
-    //   viewport = new WebMercatorViewport({
-    //     width: 300,
-    //     height: 250
-    //   }).fitBounds(
-    //     [
-    //       [minLL.lng, minLL.lat],
-    //       [maxLL.lng, maxLL.lat]
-    //     ],
-    //     {
-    //       padding: 20,
-    //       offset: [0, -100]
-    //     }
-    //   );
+    // viewport = new WebMercatorViewport({
+    //   width: 300,
+    //   height: 250
+    // }).fitBounds(
+    //   [
+    //     [minLL.lng, minLL.lat],
+    //     [maxLL.lng, maxLL.lat]
+    //   ],
+    //   {
+    //     padding: 20,
+    //     offset: [0, -100]
+    //   }
+    // );
   }
 
   // -37.8958211, 175.4628788;
 
   return (
     <DeckGL
-      height={250}
+      // {...viewport}
       controller={true}
       initialViewState={initialViewState}
       // viewport={viewport}
@@ -136,30 +148,6 @@ const HeaderMap = ({
       />
     </DeckGL>
   );
-};
-
-const haversineDistance = (lat1, lon1, lat2, lon2, unit) => {
-  const radlat1 = (Math.PI * lat1) / 180;
-  const radlat2 = (Math.PI * lat2) / 180;
-  const radlon1 = (Math.PI * lon1) / 180;
-  const radlon2 = (Math.PI * lon2) / 180;
-  const theta = lon1 - lon2;
-  const radtheta = (Math.PI * theta) / 180;
-  let dist =
-    Math.sin(radlat1) * Math.sin(radlat2) +
-    Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
-
-  dist = Math.acos(dist);
-  dist = (dist * 180) / Math.PI;
-  dist = dist * 60 * 1.1515;
-
-  if (unit == "K") {
-    dist = dist * 1.609344;
-  }
-  if (unit == "N") {
-    dist = dist * 0.8684;
-  }
-  return dist;
 };
 
 const swapLatLng = ll => {
