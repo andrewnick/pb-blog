@@ -21,17 +21,18 @@ const Post = ({ post, activityData }: Props) => {
   const { html } = post;
   const { tagSlugs, slug } = post.fields;
   const { tags, title, date, activity } = post.frontmatter;
-  // console.log(activityData);
+  console.log(activityData);
 
   return (
     <div className={styles["post"]}>
       <Link className={styles["post__home-button"]} to="/">
         All Articles
       </Link>
-      <Header title={title} activityData={activityData} />
+      {/* <Header title={title} activityData={activityData} /> */}
       {/* <h1>{activity}</h1> */}
-      {/* <ElevationMap activityData={activityData} /> */}
-      <div className={styles["post__content"]}>
+      <ElevationMap activityData={activityData} />
+
+      {/* <div className={styles["post__content"]}>
         <Map activityData={activityData} />
 
         <Content body={html} />
@@ -43,7 +44,7 @@ const Post = ({ post, activityData }: Props) => {
       </div>
       <div className={styles["post__comments"]}>
         <Comments postSlug={slug} postTitle={post.frontmatter.title} />
-      </div>
+      </div> */}
     </div>
   );
 };
