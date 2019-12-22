@@ -3,7 +3,7 @@ import styles from "./Header.module.scss";
 import HeaderMap from "../HeaderMap";
 import HeaderDefaultBackground from "./HeaderDefaultBackground";
 
-const Header = ({ title, activityData }) => {
+const Header = ({ title, activityData, zoom }) => {
   console.log(activityData);
   console.log(Object.keys(activityData).length);
   console.log(Object.keys(activityData.stream).length === 0);
@@ -13,7 +13,7 @@ const Header = ({ title, activityData }) => {
       <HeaderDefaultBackground />
       {/* {Object.keys(activityData.stream).length !== 0 && ( */}
       <div className={styles["header__map"]}>
-        <HeaderMap activityData={activityData} />
+        <HeaderMap activityData={activityData} zoom={zoom} />
       </div>
       {/* )} */}
       {/* <div className={styles["header__title-container"]}> */}

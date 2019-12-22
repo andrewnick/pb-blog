@@ -9,7 +9,8 @@ import { rgb } from "d3-color";
 const HeaderMap = ({
   activityData: {
     stream: { latlng }
-  }
+  },
+  zoom
 }) => {
   const cambridgeLL = {
     lat: -37.8958211,
@@ -79,7 +80,7 @@ const HeaderMap = ({
       longitude: cll.lng,
       // zoom: 12.8,
       // pitch: 50,
-      zoom: 12.5,
+      zoom,
       pitch: 40,
       bearing: 0
     };

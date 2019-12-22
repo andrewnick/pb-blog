@@ -20,7 +20,7 @@ type Props = {
 const Post = ({ post, activityData }: Props) => {
   const { html } = post;
   const { tagSlugs, slug } = post.fields;
-  const { tags, title, date, activity } = post.frontmatter;
+  const { tags, title, date, activity, zoom } = post.frontmatter;
   // console.log(activityData);
 
   return (
@@ -28,11 +28,11 @@ const Post = ({ post, activityData }: Props) => {
       <Link className={styles["post__home-button"]} to="/">
         All Articles
       </Link>
-      <Header title={title} activityData={activityData} />
+      <Header title={title} activityData={activityData} zoom={zoom} />
       {/* <h1>{activity}</h1> */}
       {/* <ElevationMap activityData={activityData} /> */}
       <div className={styles["post__content"]}>
-        <Map activityData={activityData} />
+        <Map activityData={activityData} zoom={zoom} />
 
         <Content body={html} />
       </div>

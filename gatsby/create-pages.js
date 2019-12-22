@@ -54,6 +54,7 @@ const createPages = async ({ graphql, actions }) => {
             frontmatter {
               template
               activity
+              zoom
             }
             fields {
               slug

@@ -27,6 +27,8 @@ const PostTemplate = ({ data, pageContext }: Props) => {
   const metaDescription =
     postDescription !== null ? postDescription : siteSubtitle;
 
+  console.log(data);
+
   return (
     <Layout
       title={`${postTitle} - ${siteTitle}`}
@@ -51,6 +53,7 @@ export const query = graphql`
         date
         description
         activity
+        zoom
         tags
         title
         socialImage

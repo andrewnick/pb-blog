@@ -41,6 +41,7 @@ export type Node = {
     category?: string,
     tags?: string[],
     activity?: string,
+    zoom?: number,
     title: string,
     socialImage?: string
   },

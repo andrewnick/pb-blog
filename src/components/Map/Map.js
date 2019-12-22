@@ -2,24 +2,29 @@
 import React from "react";
 import DeckGL from "@deck.gl/react";
 import { MapView, MapController } from "@deck.gl/core";
-import ReactMapGL, { NavigationControl } from "react-map-gl";
+import ReactMapGL, { NavigationControl, Marker } from "react-map-gl";
 
 import { GeoJsonLayer } from "@deck.gl/layers";
 import { StaticMap } from "react-map-gl";
 import { rgb } from "d3-color";
 import styles from "./Map.module.scss";
+import FinishMarker from "./FinishMarker";
+import StartMarker from "./StartMarker";
 
 const Map = ({
   activityData: {
     stream: { latlng },
     activityData
-  }
+  },
+  zoom
 }) => {
   if (latlng === undefined) {
     return null;
   }
 
   const cll = centreLatLng(latlng);
+  const startll = latlng[0];
+  const endll = latlng[latlng.length - 1];
 
   const geoData = {
     type: "Feature",
@@ -64,7 +69,7 @@ const Map = ({
   const initialViewState = {
     latitude: cll.lat,
     longitude: cll.lng,
-    zoom: 12.8,
+    zoom,
     pitch: 50,
     bearing: 0
   };
@@ -120,6 +125,8 @@ const Map = ({
             mapStyle={"mapbox://styles/mapbox/outdoors-v11"}
             mapboxApiAccessToken={process.env.GATSBY_MAPBOX_ACCESS_TOKEN}
           >
+            <StartMarker latLng={startll} />
+            <FinishMarker latLng={endll} />
             <div style={{ position: "absolute", right: 8, top: 8 }}>
               <NavigationControl />
             </div>
