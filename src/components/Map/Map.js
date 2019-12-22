@@ -4,7 +4,7 @@ import DeckGL from "@deck.gl/react";
 import { MapView, MapController } from "@deck.gl/core";
 import ReactMapGL, { NavigationControl } from "react-map-gl";
 
-import { GeoJsonLayer } from "@deck.gl/layers";
+import { GeoJsonLayer, PathLayer } from "@deck.gl/layers";
 import { StaticMap } from "react-map-gl";
 import { rgb } from "d3-color";
 import styles from "./Map.module.scss";
@@ -21,53 +21,82 @@ const Map = ({
 
   const cll = centreLatLng(latlng);
 
-  const geoData = {
-    type: "Feature",
-    properties: { name: "Walk", color: "#00aeef" },
-    geometry: {
-      type: "MultiLineString",
-      coordinates: [swapLatLng(latlng)]
-    }
-  };
+  // const geoData = {
+  //   type: "Feature",
+  //   properties: { name: "Walk", color: "#00aeef" },
+  //   geometry: {
+  //     type: "MultiLineString",
+  //     coordinates: [swapLatLng(latlng)]
+  //   }
+  // };
 
-  const colorToRGBArray = color => {
-    if (Array.isArray(color)) {
-      return color.slice(0, 4);
-    }
-    const c = rgb(color);
-    return [c.r, c.g, c.b, 255];
-  };
+  // const colorToRGBArray = color => {
+  //   if (Array.isArray(color)) {
+  //     return color.slice(0, 4);
+  //   }
+  //   const c = rgb(color);
+  //   return [c.r, c.g, c.b, 255];
+  // };
 
-  const geoLayer = new GeoJsonLayer({
-    id: "geojson-layer",
-    data: geoData,
-    pickable: true,
-    stroked: false,
-    filled: true,
-    extruded: true,
-    lineWidthScale: 20,
-    lineWidthMinPixels: 2,
-    getFillColor: [160, 160, 180, 200],
-    getLineColor: d => colorToRGBArray(d.properties.color),
-    getRadius: 100,
-    getLineWidth: 1,
-    getElevation: 50
-    // onHover: ({ object, x, y }) => {
-    //   const tooltip = object.properties.name || object.properties.station;
-    //   /* Update tooltip
-    //      http://deck.gl/#/documentation/developer-guide/adding-interactivity?section=example-display-a-tooltip-for-hovered-object
-    //   */
-    // }
-  });
+  // const pathLayer = new PathLayer({
+  //   id: "path-layer",
+  //   data: geoData,
+  //   pickable: true,
+  //   widthScale: 20,
+  //   widthMinPixels: 2,
+  //   getPath: d => d,
+  //   getColor: d => [255, 0, 0],
+  //   getWidth: d => 5,
+  //   onHover: ({ object, x, y }) => {
+  //     const tooltip = object.name;
+  //     /* Update tooltip
+  //         http://deck.gl/#/documentation/developer-guide/adding-interactivity?section=example-display-a-tooltip-for-hovered-object
+  //       */
+  //   }
+  // });
+
+  // const geoLayer = new GeoJsonLayer({
+  //   id: "geojson-layer",
+  //   data: geoData,
+  //   pickable: true,
+  //   stroked: false,
+  //   filled: true,
+  //   extruded: true,
+  //   lineWidthScale: 20,
+  //   lineWidthMinPixels: 2,
+  //   getFillColor: [160, 160, 180, 200],
+  //   getLineColor: d => colorToRGBArray(d.properties.color),
+  //   getRadius: 100,
+  //   getLineWidth: 1,
+  //   getElevation: 50
+  //   // onHover: ({ object, x, y }) => {
+  //   //   const tooltip = object.properties.name || object.properties.station;
+  //   //   /* Update tooltip
+  //   //      http://deck.gl/#/documentation/developer-guide/adding-interactivity?section=example-display-a-tooltip-for-hovered-object
+  //   //   */
+  //   // }
+  // });
 
   // Initial viewport settings
   const initialViewState = {
-    latitude: cll.lat,
-    longitude: cll.lng,
+    latitude: 37.7,
+    longitude: -122.4,
     zoom: 12.8,
     pitch: 50,
     bearing: 0
   };
+  // USE PLAIN JSON OBJECTS
+  const PATH_DATA = [
+    {
+      path: [
+        [-122.4, 37.7, 10],
+        [-122.5, 37.8, 0],
+        [-122.6, 37.85, 15]
+      ],
+      name: "Richmond - Millbrae",
+      color: [255, 0, 0]
+    }
+  ];
 
   return (
     <div className={styles["map"]}>
@@ -112,7 +141,14 @@ const Map = ({
           minHeight="100px"
           controller={true}
           initialViewState={initialViewState}
-          layers={[geoLayer]}
+          layers={[
+            new PathLayer({
+              data: PATH_DATA,
+              getPath: d => d.path,
+              getColor: d => d.color,
+              getWidth: 15
+            })
+          ]}
         >
           <ReactMapGL
             width="100%"

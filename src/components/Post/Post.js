@@ -9,6 +9,7 @@ import Tags from "./Tags";
 import Header from "../Header";
 import Map from "../Map";
 import ElevationMap from "../ElevationMap";
+import GeoJson from "../GeoJson";
 import styles from "./Post.module.scss";
 import type { Node, ActivityData } from "../../types";
 
@@ -30,12 +31,13 @@ const Post = ({ post, activityData }: Props) => {
       </Link>
       {/* <Header title={title} activityData={activityData} /> */}
       {/* <h1>{activity}</h1> */}
-      <ElevationMap activityData={activityData} />
+      {/* <ElevationMap activityData={activityData} /> */}
+      {/* <GeoJson /> */}
 
-      {/* <div className={styles["post__content"]}>
-        <Map activityData={activityData} />
+      {/* <div className={styles["post__content"]}> */}
+      <Map activityData={activityData} />
 
-        <Content body={html} />
+      {/* <Content body={html} />
       </div>
       <div className={styles["post__footer"]}>
         <Meta date={date} />

@@ -23,7 +23,7 @@ const addElevationToLL = (xy, z) => {
 
 const data = addElevationToLL(xy, z);
 
-console.log(addElevationToLL(xy, z));
+// console.log(addElevationToLL(xy, z));
 const pathVectors = addElevationToLL(xy, z);
 
 const generateMatrix = (xMax, yMax, line) => {
@@ -58,22 +58,15 @@ const generateMatrix = (xMax, yMax, line) => {
   //   }
   // }
 
-  const rows = 4;
-  const columns = 4;
+  // const rows = 6;
+  // const columns = 6;
 
   const myArray1 = [];
 
-  for (let i = 0; i < rows; i++) {
+  for (let i = 0; i < xMax; i++) {
     myArray1[i] = [];
-    for (let j = 0; j < columns; j++) {
-      // myArray1[i][j] = null;
-      console.log(line[i][1] === j);
-      console.log(line[i][0] === i);
-
-      if (line[i][i] === i && line[i][j] === j) {
-        console.log("asdf");
-        console.log(line[i]);
-
+    for (let j = 0; j < yMax; j++) {
+      if (line[i][0] === i && line[i][1] === j) {
         myArray1[i][j] = line[i];
       } else {
         myArray1[i][j] = [0, 0, 0];
@@ -86,8 +79,8 @@ const generateMatrix = (xMax, yMax, line) => {
   return myArray1;
 };
 
-const matrix = generateMatrix(6, 6, pathVectors);
-console.log(matrix);
+const matrix = generateMatrix(7, 7, pathVectors);
+// console.log(matrix);
 
 // const d =
 // const Dline = line()
@@ -152,19 +145,23 @@ export class ElevationMap extends Component {
   }
 
   render() {
-    const { resolution = 6, showAxis = true, equation = EQUATION } = this.props;
+    const { resolution = 8, showAxis = true, equation = EQUATION } = this.props;
 
     const layers = [
       equation &&
         resolution &&
         new PlotLayer({
           getPosition: (u, v) => {
-            // console.log(u, v);
-
-            const x = data[u];
-            const y = data[v];
+            console.log(u, v);
+            const i = u * 10;
+            const j = v * 10;
+            console.log(i, j);
+            // console.log(matrix[i][j]);
+            const x = 1; //matrix[i][j][0];
+            const y = 2; //matrix[i][j][1];
+            const z = 3; //matrix[i][j][2];
             // data;
-            return [x, y, equation(x, y)];
+            return [x, y, z];
           },
           getColor: (x, y, z) => [40, z * 128 + 128, 160],
           getXScale: getScale,
