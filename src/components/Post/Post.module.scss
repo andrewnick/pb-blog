@@ -16,7 +16,7 @@
 
   &__home-button {
     display: block;
-    max-width: 90px;
+    // max-width: 90px;
     height: $button-height;
     padding: 0 24px;
     line-height: $button-height;
@@ -31,6 +31,10 @@
     @include margin-top(1);
     z-index: 1;
     background: #fff;
+    position: fixed;
+    max-width: auto;
+    left: 50%;
+    margin-left: -63px;
 
     &:hover,
     &:focus {

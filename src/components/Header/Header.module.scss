@@ -5,8 +5,7 @@ $bg-color: #415daf;
 
 .header {
   height: 250px;
-  @include margin-bottom(2);
-
+  padding: 0 15px;
   position: relative;
   display: flex;
   justify-content: center;

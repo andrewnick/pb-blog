@@ -4,7 +4,7 @@
 .map {
   display: flex;
   flex-wrap: wrap;
-  padding: 4rem;
+  padding: 15px;
 
   max-width: $layout-post-width;
   margin-left: auto;
@@ -21,18 +21,15 @@
     flex: 0 0 100%;
     display: flex;
     flex-wrap: wrap;
-    padding: 10px 0;
-    border-top: 1px solid #5f5e5e;
+    padding-bottom: 10px;
+    margin-left: -1rem;
+    margin-right: -1rem;
 
     &__detail {
       font-size: 14px;
       display: flex;
       flex-direction: column;
       padding: 1rem;
-
-      &:first-child {
-        padding-left: 0;
-      }
 
       &__title {
         font-size: 12px;
@@ -43,6 +40,17 @@
         font-size: 22px;
         line-height: 1;
       }
+    }
+  }
+}
+
+@include breakpoint-md {
+  .map {
+    padding: 4rem;
+
+    &__meta {
+      border-top: 1px solid #5f5e5e;
+      padding: 10px 0;
     }
   }
 }

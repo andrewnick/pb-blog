@@ -1,5 +1,5 @@
 // @flow strict
-import React from "react";
+import React, { useState } from "react";
 import DeckGL from "@deck.gl/react";
 import ReactMapGL, { NavigationControl } from "react-map-gl";
 import { GeoJsonLayer } from "@deck.gl/layers";
@@ -63,14 +63,13 @@ const Map = ({
     // }
   });
 
-  // Initial viewport settings
-  const initialViewState = {
+  const [viewport, setViewport] = useState({
     latitude: cll.lat,
     longitude: cll.lng,
     zoom,
     pitch: 50,
     bearing: 0
-  };
+  });
 
   return (
     <div className={styles["map"]}>
@@ -81,7 +80,8 @@ const Map = ({
           height="30vw"
           minHeight="100px"
           controller={true}
-          initialViewState={initialViewState}
+          initialViewState={viewport}
+          // onViewportChange={viewport => setViewport(viewport)}
           layers={[geoLayer]}
         >
           <ReactMapGL

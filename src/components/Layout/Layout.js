@@ -29,7 +29,7 @@ const Layout = ({ children, title, description, socialImage }: Props) => {
         <meta property="og:image" content={metaImageUrl} />
         <link
           href={
-            "https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.css"
+            "https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.1/mapbox-gl.css"
           }
           rel="stylesheet"
         />
