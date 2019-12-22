@@ -1,15 +1,13 @@
 // @flow strict
 import React from "react";
 import DeckGL from "@deck.gl/react";
-import { MapView, MapController } from "@deck.gl/core";
-import ReactMapGL, { NavigationControl, Marker } from "react-map-gl";
-
+import ReactMapGL, { NavigationControl } from "react-map-gl";
 import { GeoJsonLayer } from "@deck.gl/layers";
-import { StaticMap } from "react-map-gl";
 import { rgb } from "d3-color";
 import styles from "./Map.module.scss";
 import FinishMarker from "./FinishMarker";
 import StartMarker from "./StartMarker";
+import ActivitySummary from "./ActivitySummary";
 
 const Map = ({
   activityData: {
@@ -76,40 +74,7 @@ const Map = ({
 
   return (
     <div className={styles["map"]}>
-      {activityData && (
-        <div className={styles["map__meta"]}>
-          <div className={styles["map__meta__detail"]}>
-            <span className={styles["map__meta__detail__value"]}>
-              {activityData.distance} m
-            </span>
-            <span className={styles["map__meta__detail__title"]}>Distance</span>
-          </div>
-          <div className={styles["map__meta__detail"]}>
-            <span className={styles["map__meta__detail__value"]}>
-              {activityData.total_elevation_gain} m
-            </span>
-            <span className={styles["map__meta__detail__title"]}>
-              Total Elevation Gain
-            </span>
-          </div>
-          <div className={styles["map__meta__detail"]}>
-            <span className={styles["map__meta__detail__value"]}>
-              {activityData.max_speed} km/h
-            </span>
-            <span className={styles["map__meta__detail__title"]}>
-              Max Speed
-            </span>
-          </div>
-          <div className={styles["map__meta__detail"]}>
-            <span className={styles["map__meta__detail__value"]}>
-              {activityData.average_speed} km/h
-            </span>
-            <span className={styles["map__meta__detail__title"]}>
-              Average Speed
-            </span>
-          </div>
-        </div>
-      )}
+      <ActivitySummary activityData={activityData} />
       <div className={styles["map__map"]}>
         <DeckGL
           width="100%"
