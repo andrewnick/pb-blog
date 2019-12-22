@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Map.module.scss";
-import { distanceConvert } from "../../utils/convert";
+import { distanceConvert, speedConvert } from "../../utils/convert";
 
 const ActivitySummary = ({ activityData }) => (
   <div className={styles["map__meta"]}>
@@ -18,13 +18,13 @@ const ActivitySummary = ({ activityData }) => (
     </div>
     <div className={styles["map__meta__detail"]}>
       <span className={styles["map__meta__detail__value"]}>
-        {activityData.max_speed.toFixed(1)} km/h
+        {speedConvert(activityData.max_speed, "km/h")}
       </span>
       <span className={styles["map__meta__detail__title"]}>Max Speed</span>
     </div>
     <div className={styles["map__meta__detail"]}>
       <span className={styles["map__meta__detail__value"]}>
-        {activityData.average_speed.toFixed(1)} km/h
+        {speedConvert(activityData.average_speed, "km/h")}
       </span>
       <span className={styles["map__meta__detail__title"]}>Average Speed</span>
     </div>
