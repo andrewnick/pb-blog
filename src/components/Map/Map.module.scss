@@ -5,12 +5,13 @@
   display: flex;
   flex-wrap: wrap;
   padding: 15px;
+  margin: 15px;
 
   max-width: $layout-post-width;
   margin-left: auto;
   margin-right: auto;
 
-  border: 1px solid grey;
+  border: 1px solid #dcdcdc;
   margin-top: 15px;
 
   &__map {
