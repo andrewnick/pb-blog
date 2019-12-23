@@ -14,8 +14,8 @@ collections:
     fields:
       - {label: "Template", name: "template", widget: "hidden", default: "post"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Activity Number", name: "activity", widget: "string"}
-      - {label: "Zoom", name: "zoom", widget: "number", default: 12, valueType: "float", min: 0, max: 22, step: 0.1}
+      - {label: "Activity Number", name: "activity", widget: "string", required: false}
+      - {label: "Zoom", name: "zoom", widget: "number", default: 12, valueType: "float", min: 0, max: 22, step: 0.1, required: false}
       - {label: "Slug", name: "slug", widget: "string"}
       - {label: "Draft", name: "draft", widget: "boolean", default: true}
       - {label: "Publish Date", name: "date", widget: "datetime"}
