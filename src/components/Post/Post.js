@@ -9,6 +9,8 @@ import Tags from "./Tags";
 import Header from "../Header";
 import Map from "../Map";
 import ElevationMap from "../ElevationMap";
+import HexagonMap from "../Map/HexagonMap";
+import ColumnMap from "../ColumnMap";
 import styles from "./Post.module.scss";
 import type { Node, ActivityData } from "../../types";
 
@@ -30,10 +32,11 @@ const Post = ({ post, activityData }: Props) => {
       <Link className={styles["post__home-button"]} to="/">
         All Articles
       </Link>
-      <Header title={title} activityData={activityData} zoom={zoom} />
-      {/* <h1>{activity}</h1> */}
+      {/* <Header title={title} activityData={activityData} zoom={zoom} /> */}
+      {/* <HexagonMap /> */}
+      <ColumnMap activityData={activityData} />
       {/* <ElevationMap activityData={activityData} /> */}
-      <div className={styles["post__content"]}>
+      {/* <div className={styles["post__content"]}>
         {description && <Content body={intro} />}
 
         <Map activityData={activityData} zoom={zoom} />
@@ -47,7 +50,7 @@ const Post = ({ post, activityData }: Props) => {
       </div>
       <div className={styles["post__comments"]}>
         <Comments postSlug={slug} postTitle={post.frontmatter.title} />
-      </div>
+      </div> */}
     </div>
   );
 };

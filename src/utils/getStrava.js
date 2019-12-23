@@ -98,7 +98,7 @@ const getData = async (strava, activityID) => {
       stream = await getActivityStream(activityID, strava, [
         // "time",
         // "cadence",
-        // "distance",
+        "distance",
         "latlng",
         // "heartrate",
         // "temp",
