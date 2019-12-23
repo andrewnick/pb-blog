@@ -7,10 +7,7 @@ slug: thompsons-track
 draft: false
 date: 2019-06-29T10:18:27.636Z
 description: >
-  Saturday’s forecast is good for biking and Glenys has a meeting in Katikati in
-  the BOP at a reasonable hour.  The stars are lining up apart from my fitness
-  that has slowly deteriorated from Easter.  The fortnightly rides are not
-  really enough!
+  Saturday’s forecast is good for biking and Glenys has a meeting in Katikati in the BOP at a reasonable hour. The stars are lining up apart from my fitness that has slowly deteriorated from Easter. The fortnightly rides are not really enough!
 category: Cycle
 tags:
   - Biking
@@ -19,8 +16,6 @@ tags:
   - big hill
   - bike bike bike
 ---
-
-Saturday’s forecast is good for biking and Glenys has a meeting in Katikati in the BOP at a reasonable hour. The stars are lining up apart from my fitness that has slowly deteriorated from Easter. The fortnightly rides are not really enough!
 
 Thompson’s Track is the goal, or to be precise ride the track to Old Te Aroha Rd via the paper road over the Kaimai range then hit the tarmac to ride 56km home.
 

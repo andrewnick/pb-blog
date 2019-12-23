@@ -20,8 +20,10 @@ type Props = {
 const Post = ({ post, activityData }: Props) => {
   const { html } = post;
   const { tagSlugs, slug } = post.fields;
-  const { tags, title, date, activity, zoom } = post.frontmatter;
+  const { tags, title, date, zoom, description } = post.frontmatter;
   // console.log(activityData);
+
+  const intro = `<p>${description}</p>`;
 
   return (
     <div className={styles["post"]}>
@@ -32,6 +34,8 @@ const Post = ({ post, activityData }: Props) => {
       {/* <h1>{activity}</h1> */}
       {/* <ElevationMap activityData={activityData} /> */}
       <div className={styles["post__content"]}>
+        {description && <Content body={intro} />}
+
         <Map activityData={activityData} zoom={zoom} />
 
         <Content body={html} />

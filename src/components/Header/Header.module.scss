@@ -10,10 +10,10 @@ $bg-color: #415daf;
   display: flex;
   justify-content: center;
   align-items: center;
-
   max-width: $layout-post-width;
   margin-left: auto;
   margin-right: auto;
+  @include margin-bottom(2);
 
   &__map {
     font-style: italic;
