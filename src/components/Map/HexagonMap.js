@@ -4,7 +4,6 @@ import { StaticMap } from "react-map-gl";
 import { AmbientLight, PointLight, LightingEffect } from "@deck.gl/core";
 import { HexagonLayer } from "@deck.gl/aggregation-layers";
 import DeckGL from "@deck.gl/react";
-import hex from "../../utils/hex";
 
 // Set your mapbox token here
 const MAPBOX_TOKEN = process.env.MapboxAccessToken; // eslint-disable-line
@@ -78,11 +77,7 @@ export default class Hexagon extends Component {
   }
 
   _renderLayers() {
-    const {
-      radius = 1000,
-      upperPercentile = 100,
-      coverage = 1
-    } = this.props;
+    const { radius = 1000, upperPercentile = 100, coverage = 1 } = this.props;
     const data = hex;
 
     return [
@@ -120,7 +115,7 @@ export default class Hexagon extends Component {
       >
         <StaticMap
           reuseMaps
-          mapStyle={mapStyle}
+          mapStyle={"mapbox://styles/mapbox/dark-v9"}
           preventStyleDiffing={true}
           mapboxApiAccessToken={process.env.GATSBY_MAPBOX_ACCESS_TOKEN}
         />

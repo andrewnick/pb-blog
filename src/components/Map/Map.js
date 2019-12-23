@@ -71,8 +71,6 @@ const Map = ({
     bearing: 0
   });
 
-  console.log(activityData);
-
   return (
     <div className={styles["map"]}>
       <ActivitySummary activityData={activityData} />

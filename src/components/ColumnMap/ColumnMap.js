@@ -9,7 +9,6 @@ import {
 } from "@deck.gl/layers";
 import { AmbientLight, PointLight, LightingEffect } from "@deck.gl/core";
 import { StaticMap } from "react-map-gl";
-import hex from "../../utils/hex2";
 import { rgb } from "d3-color";
 
 const ambientLight = new AmbientLight({
@@ -48,7 +47,7 @@ const ColumnMap = ({
   }
 }) => {
   // console.log(activityData);
-  console.log(latlng, altitude, distance);
+  // console.log(latlng, altitude, distance);
 
   if (latlng === undefined) {
     return null;
@@ -68,7 +67,29 @@ const ColumnMap = ({
   };
 
   const data = columnData;
-  console.log(data);
+  // console.log(data);
+
+  const minMaxSlope = data => {
+    const slope = data.map(d => d.slope);
+    // console.log(slope);
+
+    return {
+      min: Math.min(...slope),
+      max: Math.max(...slope)
+    };
+  };
+
+  const minMax = minMaxSlope(data);
+  console.log(minMax);
+  console.log(minMax.max - minMax.min);
+
+  const calcColor = (minMax, value) => {
+    const offset = minMax.min;
+    const range = minMax.max - minMax.min;
+    const factor = 255 / range;
+
+    return (value - offset) * factor;
+  };
 
   const elevationScale = 1;
 
@@ -84,12 +105,13 @@ const ColumnMap = ({
     elevationScale,
     getPosition: d => d.centroid,
     getFillColor: d => {
-      return [48, 128, d.slope * 255, 255];
-      // return [48, 128, (d.altitude * 255) / colorScale.max - 255, 255];
+      // return [48, 128, calcColor(minMax, d.slope), 255];
+      return [48, 128, (d.altitude * 255) / minMax.max - 255, 255];
     },
     getLineColor: [0, 0, 0],
     getElevation: d => d.altitude
     // onHover: ({ object, x, y }) => {
+    //   console.log(object, x, y);
     //   const tooltip = `height: ${object.altitude * 4}m`;
     //   /* Update tooltip
     //      http://deck.gl/#/documentation/developer-guide/adding-interactivity?section=example-display-a-tooltip-for-hovered-object

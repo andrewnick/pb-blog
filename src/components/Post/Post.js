@@ -32,14 +32,15 @@ const Post = ({ post, activityData }: Props) => {
       <Link className={styles["post__home-button"]} to="/">
         All Articles
       </Link>
-      {/* <Header title={title} activityData={activityData} zoom={zoom} /> */}
+      <Header title={title} activityData={activityData} zoom={zoom} />
       {/* <HexagonMap /> */}
-      <ColumnMap activityData={activityData} />
+      {/* <ColumnMap activityData={activityData} /> */}
       {/* <ElevationMap activityData={activityData} /> */}
-      {/* <div className={styles["post__content"]}>
+      <div className={styles["post__content"]}>
         {description && <Content body={intro} />}
 
         <Map activityData={activityData} zoom={zoom} />
+        <ElevationMap activityData={activityData} zoom={zoom} />
 
         <Content body={html} />
       </div>
@@ -50,7 +51,7 @@ const Post = ({ post, activityData }: Props) => {
       </div>
       <div className={styles["post__comments"]}>
         <Comments postSlug={slug} postTitle={post.frontmatter.title} />
-      </div> */}
+      </div>
     </div>
   );
 };
