@@ -116,7 +116,8 @@ const HeaderMap = ({
     >
       <StaticMap
         // mapStyle={"mapbox://styles/andrewnick/ck45eszle09lx1cpdvqg9owoi"}
-        mapStyle={"mapbox://styles/andrewnick/ck45eszle09lx1cpdvqg9owoi/draft"}
+        // mapStyle={"mapbox://styles/andrewnick/ck45eszle09lx1cpdvqg9owoi/draft"}
+        mapStyle={"mapbox://styles/andrewnick/ck4htsbki3mkx1ck9zlh2l4yo/draft"}
         // mapStyle={"mapbox://styles/andrewnick/ck4da0zyw01b41do04zg7qx0w/draft"}
         mapboxApiAccessToken={process.env.GATSBY_MAPBOX_ACCESS_TOKEN}
       />

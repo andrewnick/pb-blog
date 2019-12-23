@@ -8,7 +8,7 @@ draft: false
 date: 2019-06-29T10:18:27.636Z
 description: >
   Saturday’s forecast is good for biking and Glenys has a meeting in Katikati in the BOP at a reasonable hour. The stars are lining up apart from my fitness that has slowly deteriorated from Easter. The fortnightly rides are not really enough!
-category: Cycle
+category: cycling
 tags:
   - Biking
   - mud
