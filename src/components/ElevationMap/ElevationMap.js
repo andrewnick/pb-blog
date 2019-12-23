@@ -3,6 +3,8 @@ import React from "react";
 import DeckGL from "@deck.gl/react";
 import { GridCellLayer } from "@deck.gl/layers";
 import { AmbientLight, PointLight, LightingEffect } from "@deck.gl/core";
+import FinishMarker from "../Map/FinishMarker";
+import StartMarker from "../Map/StartMarker";
 import ReactMapGL from "react-map-gl";
 import styles from "../Map/Map.module.scss";
 
@@ -52,7 +54,8 @@ const ElevationMap = ({
   }
 
   const cll = centreLatLng(latlng);
-
+  const startll = latlng[0];
+  const endll = latlng[latlng.length - 1];
   const pathAlt = addAltitude(swapLatLng(latlng), altitude, distance);
   const columnData = addSlope(pathAlt);
 
@@ -140,10 +143,13 @@ const ElevationMap = ({
           width="100%"
           height="30vw"
           reuseMaps
-          mapStyle={"mapbox://styles/mapbox/dark-v9"}
+          mapStyle={"mapbox://styles/mapbox/outdoors-v11"}
           preventStyleDiffing={true}
           mapboxApiAccessToken={process.env.GATSBY_MAPBOX_ACCESS_TOKEN}
-        ></ReactMapGL>
+        >
+          <StartMarker latLng={startll} />
+          <FinishMarker latLng={endll} />
+        </ReactMapGL>
       </DeckGL>
     </div>
   );

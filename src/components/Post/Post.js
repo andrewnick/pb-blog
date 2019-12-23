@@ -40,7 +40,6 @@ const Post = ({ post, activityData }: Props) => {
         {description && <Content body={intro} />}
 
         <Map activityData={activityData} zoom={zoom} />
-        <ElevationMap activityData={activityData} zoom={zoom} />
 
         <Content body={html} />
       </div>

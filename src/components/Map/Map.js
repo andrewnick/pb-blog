@@ -5,17 +5,20 @@ import ReactMapGL, { NavigationControl } from "react-map-gl";
 import { GeoJsonLayer } from "@deck.gl/layers";
 import { rgb } from "d3-color";
 import styles from "./Map.module.scss";
+import ElevationMap from "../ElevationMap";
 import FinishMarker from "./FinishMarker";
 import StartMarker from "./StartMarker";
 import ActivitySummary from "./ActivitySummary";
 
-const Map = ({
-  activityData: {
+const Map = ({ activityData, zoom }) => {
+  const {
     stream: { latlng },
-    activityData
-  },
-  zoom
-}) => {
+    activityData: activityD
+  } = activityData;
+
+  console.log(activityD);
+  console.log(latlng);
+
   if (latlng === undefined) {
     return null;
   }
@@ -73,8 +76,8 @@ const Map = ({
 
   return (
     <div className={styles["map"]}>
-      <ActivitySummary activityData={activityData} />
-      <div className={styles["map__map"]}>
+      <ActivitySummary activityData={activityD} />
+      {/* <div className={styles["map__map"]}>
         <DeckGL
           width="100%"
           height="30vw"
@@ -97,7 +100,8 @@ const Map = ({
             </div>
           </ReactMapGL>
         </DeckGL>
-      </div>
+      </div> */}
+      <ElevationMap activityData={activityData} zoom={zoom} />
     </div>
   );
 };
