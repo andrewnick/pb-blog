@@ -8,7 +8,7 @@ import StartMarker from "../Map/StartMarker";
 import ReactMapGL from "react-map-gl";
 import styles from "../Map/Map.module.scss";
 
-import { rgb } from "d3-color";
+import { color as d3Color, rgb, hsl } from "d3-color";
 
 const ambientLight = new AmbientLight({
   color: [255, 255, 255],
@@ -46,9 +46,6 @@ const ElevationMap = ({
   },
   zoom
 }) => {
-  // console.log(activityData);
-  // console.log(latlng, altitude, distance);
-
   if (latlng === undefined) {
     return null;
   }
@@ -59,20 +56,22 @@ const ElevationMap = ({
   const pathAlt = addAltitude(swapLatLng(latlng), altitude, distance);
   const columnData = addSlope(pathAlt);
 
-  const colorToRGBArray = color => {
-    if (Array.isArray(color)) {
-      return color.slice(0, 4);
-    }
-    const c = rgb(color);
-    return [c.r, c.g, c.b, 255];
+  // const colorToRGBArray = color => {
+  //   if (Array.isArray(color)) {
+  //     return color.slice(0, 4);
+  //   }
+  //   const c = rgb(color);
+  //   return [c.r, c.g, c.b, 255];
+  // };
+
+  const createColor = value => {
+    return rgb(`hsl(${value}, 100%, 40%)`);
   };
 
   const data = columnData;
-  // console.log(data);
 
   const minMaxSlope = data => {
     const slope = data.map(d => d.slope);
-    // console.log(slope);
 
     return {
       min: Math.min(...slope),
@@ -81,13 +80,10 @@ const ElevationMap = ({
   };
 
   const minMax = minMaxSlope(data);
-  // console.log(minMax);
-  // console.log(minMax.max - minMax.min);
-
   const calcColor = (minMax, value) => {
     const offset = minMax.min;
     const range = minMax.max - minMax.min;
-    const factor = 255 / range;
+    const factor = 10;
 
     return (value - offset) * factor;
   };
@@ -98,7 +94,6 @@ const ElevationMap = ({
     id: "column-layer",
     data,
     diskResolution: 12,
-    // radius: 4,
     cellSize: 4,
     material,
     extruded: true,
@@ -106,8 +101,8 @@ const ElevationMap = ({
     elevationScale,
     getPosition: d => d.centroid,
     getFillColor: d => {
-      // return [48, 128, calcColor(minMax, d.slope), 255];
-      return [48, 128, (d.altitude * 255) / minMax.max - 255, 255];
+      const color = createColor(d.altitude);
+      return [color.r, color.g, color.b, 255];
     },
     getLineColor: [0, 0, 0],
     getElevation: d => d.altitude

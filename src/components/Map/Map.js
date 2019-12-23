@@ -44,35 +44,35 @@ const Map = ({ activityData, zoom }) => {
     return [c.r, c.g, c.b, 255];
   };
 
-  const geoLayer = new GeoJsonLayer({
-    id: "geojson-layer",
-    data: geoData,
-    pickable: true,
-    stroked: false,
-    filled: true,
-    extruded: true,
-    lineWidthScale: 20,
-    lineWidthMinPixels: 2,
-    getFillColor: [160, 160, 180, 200],
-    getLineColor: d => colorToRGBArray(d.properties.color),
-    getRadius: 100,
-    getLineWidth: 1,
-    getElevation: 50
-    // onHover: ({ object, x, y }) => {
-    //   const tooltip = object.properties.name || object.properties.station;
-    //   /* Update tooltip
-    //      http://deck.gl/#/documentation/developer-guide/adding-interactivity?section=example-display-a-tooltip-for-hovered-object
-    //   */
-    // }
-  });
+  // const geoLayer = new GeoJsonLayer({
+  //   id: "geojson-layer",
+  //   data: geoData,
+  //   pickable: true,
+  //   stroked: false,
+  //   filled: true,
+  //   extruded: true,
+  //   lineWidthScale: 20,
+  //   lineWidthMinPixels: 2,
+  //   getFillColor: [160, 160, 180, 200],
+  //   getLineColor: d => colorToRGBArray(d.properties.color),
+  //   getRadius: 100,
+  //   getLineWidth: 1,
+  //   getElevation: 50
+  //   // onHover: ({ object, x, y }) => {
+  //   //   const tooltip = object.properties.name || object.properties.station;
+  //   //   /* Update tooltip
+  //   //      http://deck.gl/#/documentation/developer-guide/adding-interactivity?section=example-display-a-tooltip-for-hovered-object
+  //   //   */
+  //   // }
+  // });
 
-  const [viewport, setViewport] = useState({
-    latitude: cll.lat,
-    longitude: cll.lng,
-    zoom,
-    pitch: 50,
-    bearing: 0
-  });
+  // const [viewport, setViewport] = useState({
+  //   latitude: cll.lat,
+  //   longitude: cll.lng,
+  //   zoom,
+  //   pitch: 50,
+  //   bearing: 0
+  // });
 
   return (
     <div className={styles["map"]}>
