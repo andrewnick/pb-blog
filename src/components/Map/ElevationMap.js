@@ -3,12 +3,12 @@ import React from "react";
 import DeckGL from "@deck.gl/react";
 import { GridCellLayer } from "@deck.gl/layers";
 import { AmbientLight, PointLight, LightingEffect } from "@deck.gl/core";
-import FinishMarker from "../Map/FinishMarker";
-import StartMarker from "../Map/StartMarker";
+import FinishMarker from "./FinishMarker";
+import StartMarker from "./StartMarker";
 import ReactMapGL from "react-map-gl";
-import styles from "../Map/Map.module.scss";
-
-import { color as d3Color, rgb, hsl } from "d3-color";
+import styles from "./Map.module.scss";
+import { swapLatLng, centreLatLng } from "../../utils/latlng";
+import { rgb } from "d3-color";
 
 const ambientLight = new AmbientLight({
   color: [255, 255, 255],
@@ -54,41 +54,29 @@ const ElevationMap = ({
   const startll = latlng[0];
   const endll = latlng[latlng.length - 1];
   const pathAlt = addAltitude(swapLatLng(latlng), altitude, distance);
-  const columnData = addSlope(pathAlt);
-
-  // const colorToRGBArray = color => {
-  //   if (Array.isArray(color)) {
-  //     return color.slice(0, 4);
-  //   }
-  //   const c = rgb(color);
-  //   return [c.r, c.g, c.b, 255];
-  // };
+  const data = addSlope(pathAlt);
 
   const createColor = value => {
     return rgb(`hsl(${value}, 100%, 40%)`);
   };
 
-  const data = columnData;
+  // const minMaxSlope = data => {
+  //   const slope = data.map(d => d.slope);
 
-  const minMaxSlope = data => {
-    const slope = data.map(d => d.slope);
+  //   return {
+  //     min: Math.min(...slope),
+  //     max: Math.max(...slope)
+  //   };
+  // };
 
-    return {
-      min: Math.min(...slope),
-      max: Math.max(...slope)
-    };
-  };
+  // const minMax = minMaxSlope(data);
+  // const calcColor = (minMax, value) => {
+  //   const offset = minMax.min;
+  //   const range = minMax.max - minMax.min;
+  //   const factor = 10;
 
-  const minMax = minMaxSlope(data);
-  const calcColor = (minMax, value) => {
-    const offset = minMax.min;
-    const range = minMax.max - minMax.min;
-    const factor = 10;
-
-    return (value - offset) * factor;
-  };
-
-  const elevationScale = 1;
+  //   return (value - offset) * factor;
+  // };
 
   const layer = new GridCellLayer({
     id: "column-layer",
@@ -98,7 +86,7 @@ const ElevationMap = ({
     material,
     extruded: true,
     pickable: true,
-    elevationScale,
+    elevationScale: 1,
     getPosition: d => d.centroid,
     getFillColor: d => {
       const color = createColor(d.altitude);
@@ -178,39 +166,6 @@ const addSlope = data => {
       slope
     };
   });
-};
-
-const swapLatLng = ll => {
-  const newLL = ll.map(coord => {
-    return [coord[1], coord[0]];
-  });
-  return newLL;
-};
-
-const centreLatLng = stream => {
-  const lat = stream.map(latlng => latlng[0]);
-  const lng = stream.map(latlng => latlng[1]);
-
-  const maxLng = lng.reduce((accumulator, currentValue) => {
-    return accumulator > currentValue ? accumulator : currentValue;
-  });
-
-  const maxLat = lat.reduce((accumulator, currentValue) => {
-    return accumulator > currentValue ? accumulator : currentValue;
-  });
-
-  const minLng = lng.reduce((accumulator, currentValue) => {
-    return accumulator < currentValue ? accumulator : currentValue;
-  });
-
-  const minLat = lat.reduce((accumulator, currentValue) => {
-    return accumulator < currentValue ? accumulator : currentValue;
-  });
-
-  const centreLat = (maxLat - minLat) / 2 + minLat;
-  const centreLng = (maxLng - minLng) / 2 + minLng;
-
-  return { lat: centreLat, lng: centreLng };
 };
 
 export default ElevationMap;

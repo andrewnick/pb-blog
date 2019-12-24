@@ -1,10 +1,10 @@
 // @flow strict
 import React from "react";
 import DeckGL from "@deck.gl/react";
-import { WebMercatorViewport } from "@deck.gl/core";
 import { GeoJsonLayer } from "@deck.gl/layers";
 import { StaticMap } from "react-map-gl";
 import { rgb } from "d3-color";
+import { swapLatLng, centreLatLng } from "../../utils/latlng";
 
 const HeaderMap = ({
   activityData: {
@@ -35,7 +35,6 @@ const HeaderMap = ({
     const geoData = {
       type: "Feature",
       properties: { name: "Walk", color: "#cdfffd" },
-      // properties: { name: "Walk", color: "#d2deff" },
       geometry: {
         type: "MultiLineString",
         coordinates: [swapLatLng(latlng)]
@@ -78,98 +77,25 @@ const HeaderMap = ({
     initialViewState = {
       latitude: cll.lat,
       longitude: cll.lng,
-      // zoom: 12.8,
-      // pitch: 50,
       zoom,
       pitch: 40,
       bearing: 0
     };
-
-    // const { lat, lng } = latLngArray(latlng);
-    // const maxLL = maxLatLng(lat, lng);
-    // const minLL = minLatLng(lat, lng);
-
-    //   viewport = new WebMercatorViewport({
-    //     width: 300,
-    //     height: 250
-    //   }).fitBounds(
-    //     [
-    //       [minLL.lng, minLL.lat],
-    //       [maxLL.lng, maxLL.lat]
-    //     ],
-    //     {
-    //       padding: 20,
-    //       offset: [0, -100]
-    //     }
-    //   );
   }
-
-  // -37.8958211, 175.4628788;
 
   return (
     <DeckGL
       height={250}
       controller={true}
       initialViewState={initialViewState}
-      // viewport={viewport}
       layers={layers}
     >
       <StaticMap
-        // mapStyle={"mapbox://styles/andrewnick/ck45eszle09lx1cpdvqg9owoi"}
-        // mapStyle={"mapbox://styles/andrewnick/ck45eszle09lx1cpdvqg9owoi/draft"}
-        mapStyle={"mapbox://styles/andrewnick/ck4htsbki3mkx1ck9zlh2l4yo/draft"}
-        // mapStyle={"mapbox://styles/andrewnick/ck4da0zyw01b41do04zg7qx0w/draft"}
+        mapStyle={"mapbox://styles/andrewnick/ck4htsbki3mkx1ck9zlh2l4yo"}
         mapboxApiAccessToken={process.env.GATSBY_MAPBOX_ACCESS_TOKEN}
       />
     </DeckGL>
   );
-};
-
-const swapLatLng = ll => {
-  const newLL = ll.map(coord => {
-    return [coord[1], coord[0]];
-  });
-  return newLL;
-};
-
-const latLngArray = latlng => {
-  return { lat: latlng.map(ll => ll[0]), lng: latlng.map(ll => ll[1]) };
-};
-
-const centreLatLng = latlng => {
-  const { lat, lng } = latLngArray(latlng);
-
-  const maxLL = maxLatLng(lat, lng);
-  const minLL = minLatLng(lat, lng);
-
-  const centreLat = (maxLL.lat - minLL.lat) / 2 + minLL.lat;
-  const centreLng = (maxLL.lng - minLL.lng) / 2 + minLL.lng;
-
-  return { lat: centreLat, lng: centreLng };
-};
-
-const maxLatLng = (lat, lng) => {
-  const maxLng = lng.reduce((accumulator, currentValue) => {
-    return accumulator > currentValue ? accumulator : currentValue;
-  });
-
-  const maxLat = lat.reduce((accumulator, currentValue) => {
-    return accumulator > currentValue ? accumulator : currentValue;
-  });
-
-  return { lat: maxLat, lng: maxLng };
-};
-
-const minLatLng = (lat, lng) => {
-  const minLng = lng.reduce((accumulator, currentValue) => {
-    return accumulator < currentValue ? accumulator : currentValue;
-  });
-
-  const minLat = lat.reduce((accumulator, currentValue) => {
-    return accumulator < currentValue ? accumulator : currentValue;
-  });
-
-  return { lat: minLat, lng: minLng };
 };
 
 export default HeaderMap;

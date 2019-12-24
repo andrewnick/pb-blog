@@ -8,9 +8,6 @@ import Meta from "./Meta";
 import Tags from "./Tags";
 import Header from "../Header";
 import Map from "../Map";
-import ElevationMap from "../ElevationMap";
-import HexagonMap from "../Map/HexagonMap";
-import ColumnMap from "../ColumnMap";
 import styles from "./Post.module.scss";
 import type { Node, ActivityData } from "../../types";
 

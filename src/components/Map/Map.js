@@ -5,9 +5,8 @@ import ReactMapGL, { NavigationControl } from "react-map-gl";
 import { GeoJsonLayer } from "@deck.gl/layers";
 import { rgb } from "d3-color";
 import styles from "./Map.module.scss";
-import ElevationMap from "../ElevationMap";
-import FinishMarker from "./FinishMarker";
-import StartMarker from "./StartMarker";
+import ElevationMap from "./ElevationMap";
+import { swapLatLng, centreLatLng } from "../../utils/latlng";
 import ActivitySummary from "./ActivitySummary";
 
 const Map = ({ activityData, zoom }) => {
@@ -104,39 +103,6 @@ const Map = ({ activityData, zoom }) => {
       <ElevationMap activityData={activityData} zoom={zoom} />
     </div>
   );
-};
-
-const swapLatLng = ll => {
-  const newLL = ll.map(coord => {
-    return [coord[1], coord[0]];
-  });
-  return newLL;
-};
-
-const centreLatLng = stream => {
-  const lat = stream.map(ll => ll[0]);
-  const lng = stream.map(ll => ll[1]);
-
-  const maxLng = lng.reduce((accumulator, currentValue) => {
-    return accumulator > currentValue ? accumulator : currentValue;
-  });
-
-  const maxLat = lat.reduce((accumulator, currentValue) => {
-    return accumulator > currentValue ? accumulator : currentValue;
-  });
-
-  const minLng = lng.reduce((accumulator, currentValue) => {
-    return accumulator < currentValue ? accumulator : currentValue;
-  });
-
-  const minLat = lat.reduce((accumulator, currentValue) => {
-    return accumulator < currentValue ? accumulator : currentValue;
-  });
-
-  const centreLat = (maxLat - minLat) / 2 + minLat;
-  const centreLng = (maxLng - minLng) / 2 + minLng;
-
-  return { lat: centreLat, lng: centreLng };
 };
 
 export default Map;
