@@ -4,10 +4,10 @@ title: About me
 slug: about-me
 draft: false
 ---
-Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.
+Although some accredit me with legend status, I am but a simple man, with a few simple pleasures. Like the joy of holding my grandson in my arms. The satisfaction of a well stacked dishwasher. The first crunch into a warm pie after cranking out a 100ks before 11am. The pride of completing a team Half Iron Man with my sons. The cool smear of butt cream on a warm summer's day.
 
-Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi.
+I spend most days as the director of a bible school in central Waikato, and previously worked for 20 years as a director of an outdoors programme. I admit, to the shame of those who love me, to being a reformed unicyclist, but am proud to claim I have been mountain biking before mountain biking was invented.
 
-Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi.
+When I'm not delving into hermeneutics and exegetical methods, you'll find me planning my next epic ride. This blog contains some of these adventures and I hope you enjoy coming along for the ride.
 
-Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus
+PB.
