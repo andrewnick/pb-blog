@@ -31,7 +31,7 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
 
   return (
     <Layout title={pageTitle} description={siteSubtitle}>
-      <Header title={"Pb's trip reports"} activityData={{ stream: {} }} />
+      <Header title={"PB's trip reports"} activityData={{ stream: {} }} />
       <Sidebar isIndex />
       <Page>
         <Feed edges={edges} />
