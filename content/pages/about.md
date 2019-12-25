@@ -12,6 +12,8 @@ When I'm not delving into hermeneutics and exegetical methods, you'll find me pl
 
 PB.
 
+See the maps below to see how many more roads there are to complete to ride the North Island
+
 ![North Island Trips](/media/north-island.png "North Island Trips")
 
 _North Island Trips_
