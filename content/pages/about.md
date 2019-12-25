@@ -11,3 +11,11 @@ I spend most days as the director of a bible school in central Waikato, and prev
 When I'm not delving into hermeneutics and exegetical methods, you'll find me planning my next epic ride. This blog contains some of these adventures and I hope you enjoy coming along for the ride.
 
 PB.
+
+![North Island Trips](/media/north-island.png "North Island Trips")
+
+_North Island Trips_
+
+![Waikato Trips](/media/waikato.png "Waikato Trips")
+
+_Waikato Trips_
