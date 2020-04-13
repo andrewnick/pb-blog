@@ -16,7 +16,7 @@ tags:
 ---
 Due to unforeseen circumstances I was not going to be able to complete my annual bike packing trip. We found ourselves staying in Lower Hutt post Christmas, house sitting. The region is well set up for biking. At the entry level there is the river bank trails then there are great options if you want to head for the hills either west to Belmont or east towards Wainuiomata. Previously I had borrowed brother Andrew's mountain bike to follow a ridge-line track to Stokes Valley only to navigate my way to the Northern end of Wainuiomata, coming out in some ones back yard after carrying the bike down a snotty, supplejack infested gully. This time I took the correct turn passing many beehives, dodging logging operations coming down on the northern side of Stokes Valley on a street I used to run up in my youth, for a flat cruise down the river bank trails.
 
-
+![](/media/andrew-s-bike.jpg "Weapon of choice")
 
 One of the benefits of my multiday trips is that they are great training for the annual Ironbics effort in the Ports of Tauranga half iron-man race that Cam, Tyler & I compete in. My goal has been to do the 90km bike ride in under 3 hour and at my age this needs a reasonable amount of training. So I had a bike available, plenty of rides to choose from and a free day as Glenys was keen to visit historic sights in Wellington.
 
