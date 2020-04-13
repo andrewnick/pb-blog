@@ -8,7 +8,7 @@ date: 2020-04-12T21:59:58.084Z
 description: >-
   Day trip from Lower Hutt down the Wainuiomata Valley and around the coast to
   the Wairarapa returning via the Remutaki incline.
-category: Bike
+category: Cycle
 tags:
   - bike packing
   - cycle tour
@@ -16,15 +16,19 @@ tags:
 ---
 Due to unforeseen circumstances I was not going to be able to complete my annual bike packing trip. We found ourselves staying in Lower Hutt post Christmas, house sitting. The region is well set up for biking. At the entry level there is the river bank trails then there are great options if you want to head for the hills either west to Belmont or east towards Wainuiomata. Previously I had borrowed brother Andrew's mountain bike to follow a ridge-line track to Stokes Valley only to navigate my way to the Northern end of Wainuiomata, coming out in some ones back yard after carrying the bike down a snotty, supplejack infested gully. This time I took the correct turn passing many beehives, dodging logging operations coming down on the northern side of Stokes Valley on a street I used to run up in my youth, for a flat cruise down the river bank trails.
 
-![](/media/andrew-s-bike.jpg "Weapon of choice")
-
 One of the benefits of my multiday trips is that they are great training for the annual Ironbics effort in the Ports of Tauranga half iron-man race that Cam, Tyler & I compete in. My goal has been to do the 90km bike ride in under 3 hour and at my age this needs a reasonable amount of training. So I had a bike available, plenty of rides to choose from and a free day as Glenys was keen to visit historic sights in Wellington.
+
+![](/media/pb-half-im-2.jpg "The PB part of team Ironbics")
 
 A number of years ago I biked over the 25km Remutaka Incline (https://nzcycletrail.com/find-your-ride/22-great-rides/remutaka-cycle-trail/), a lovely bike trail following a historic railway route from Upper Hutt to the Wairarapa. I prefer to do a round trip rather than there & back so with the Rimutaka Hill road not being an option the only other route is around the very scenic South Coast.
 
 Andrew who was tramping somewhere in the Kaharangi National Park generously offered me the use of his bikes for the duration of our stay. His mountain bike which would be well suited to the south coast would be too sluggish for the long sections of tarseal & gravel roads. I opted for his Noroco cyclocross bike, with a carbon fibre frame, disc brakes, knobbly tires and a frame pack it would be ideally suited for such a gaunt. Some small cuts in the running surface of the back tire had me slightly concerned so I swapped it onto the front where it wouldn’t get such a pounding.
 
+![](/media/andrew-s-bike.jpg "Weapon of Choice")
+
 Apart from the 180m climb over the Wainui hill the predicted wind from the north for the day made the run down the Wainuiomata valley to the coast a breeze. I could have travelled down the Eastborne coast and over the ridge at Baring Head to make the trip more interesting but at that stage I was ignorant of any access issues, so played it safe.  The gateway to the coast is through the Kyber Pass, where the road passes over a small low rocky pass giving great sea views and turning east. A couple kms later the road ends and the costal 4x4 track takes over. 
+
+
 
 The track follows high on the earthquake raised level near the base of the steep & rocky hill sides. This is a rugged environment with strong salty winds and rocky terrain restricting plant growth to stunted bushes & other low lying flora. Shingle & bigger rocks are constantly being washed from the hills. I was able to ride most of it apart from the Kotumu Shingle Fan which is constantly moving and a sandy climb under some cliffs.   
 
