@@ -1,8 +1,5 @@
 // @flow strict
-import React, { useState } from "react";
-import DeckGL from "@deck.gl/react";
-import ReactMapGL, { NavigationControl } from "react-map-gl";
-import { GeoJsonLayer } from "@deck.gl/layers";
+import React from "react";
 import { rgb } from "d3-color";
 import styles from "./Map.module.scss";
 import ElevationMap from "./ElevationMap";
@@ -14,9 +11,6 @@ const Map = ({ activityData, zoom }) => {
     stream: { latlng },
     activityData: activityD
   } = activityData;
-
-  console.log(activityD);
-  console.log(latlng);
 
   if (latlng === undefined) {
     return null;

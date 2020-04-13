@@ -1,7 +1,7 @@
 // @flow strict
 import React from "react";
 import DeckGL from "@deck.gl/react";
-import { GridCellLayer } from "@deck.gl/layers";
+import { GridCellLayer, GeoJsonLayer } from "@deck.gl/layers";
 import { AmbientLight, PointLight, LightingEffect } from "@deck.gl/core";
 import FinishMarker from "./FinishMarker";
 import StartMarker from "./StartMarker";
@@ -60,6 +60,23 @@ const ElevationMap = ({
     return rgb(`hsl(${value}, 100%, 40%)`);
   };
 
+  const geoData = {
+    type: "Feature",
+    properties: { name: "Walk", color: "#00aeef" },
+    geometry: {
+      type: "MultiLineString",
+      coordinates: [swapLatLng(latlng)]
+    }
+  };
+
+  const colorToRGBArray = color => {
+    if (Array.isArray(color)) {
+      return color.slice(0, 4);
+    }
+    const c = rgb(color);
+    return [c.r, c.g, c.b, 255];
+  };
+
   // const minMaxSlope = data => {
   //   const slope = data.map(d => d.slope);
 
@@ -103,6 +120,28 @@ const ElevationMap = ({
     // }
   });
 
+  const geoLayer = new GeoJsonLayer({
+    id: "geojson-layer",
+    data: geoData,
+    pickable: true,
+    stroked: false,
+    filled: true,
+    extruded: true,
+    lineWidthScale: 20,
+    lineWidthMinPixels: 2,
+    getFillColor: [160, 160, 180, 200],
+    getLineColor: d => colorToRGBArray(d.properties.color),
+    getRadius: 100,
+    getLineWidth: 1,
+    getElevation: 50
+    // onHover: ({ object, x, y }) => {
+    //   const tooltip = object.properties.name || object.properties.station;
+    //   /* Update tooltip
+    //      http://deck.gl/#/documentation/developer-guide/adding-interactivity?section=example-display-a-tooltip-for-hovered-object
+    //   */
+    // }
+  });
+
   const initialViewState = {
     latitude: cll.lat,
     longitude: cll.lng,
@@ -120,7 +159,7 @@ const ElevationMap = ({
         controller={true}
         effects={[lightingEffect]}
         initialViewState={initialViewState}
-        layers={[layer]}
+        layers={[layer, geoLayer]}
       >
         <ReactMapGL
           width="100%"
