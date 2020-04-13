@@ -2,7 +2,7 @@
 template: post
 title: Remutaka Incline loop
 activity: '2974461716'
-zoom: 12
+zoom: 9
 slug: Lower Hutt around the block via Turakirae Head Jan 2020
 draft: false
 date: 2020-04-12T21:59:58.084Z
