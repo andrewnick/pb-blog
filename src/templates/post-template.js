@@ -56,7 +56,6 @@ export const query = graphql`
         zoom
         tags
         title
-        socialImage
       }
     }
   }
