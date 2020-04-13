@@ -8,7 +8,7 @@ draft: false
 date: 2020-04-12T21:59:58.084Z
 description: >-
   Day trip from Lower Hutt down the Wainuiomata Valley and around the coast to
-  the Wairarapa returning via the Remutaki incline.
+  the Wairarapa returning via the Remutaka incline in Jan 2020.
 category: Cycle
 tags:
   - bike packing
@@ -23,7 +23,7 @@ One of the benefits of my multiday trips is that they are great training for the
 
 A number of years ago I biked over the 25km Remutaka Incline (https://nzcycletrail.com/find-your-ride/22-great-rides/remutaka-cycle-trail/), a lovely bike trail following a historic railway route from Upper Hutt to the Wairarapa. I prefer to do a round trip rather than there & back so with the Rimutaka Hill road not being an option the only other route is around the very scenic South Coast.
 
-Andrew who was tramping somewhere in the Kaharangi National Park generously offered me the use of his bikes for the duration of our stay. His mountain bike which would be well suited to the south coast would be too sluggish for the long sections of tarseal & gravel roads. I opted for his Noroco cyclocross bike, with a carbon fibre frame, disc brakes, knobbly tires and a frame pack it would be ideally suited for such a gaunt. Some small cuts in the running surface of the back tire had me slightly concerned so I swapped it onto the front where it wouldn’t get such a pounding.
+Andrew who was tramping somewhere in the Kaharangi National Park generously offered me the use of his bikes for the duration of our stay. His mountain bike which would be well suited to the south coast would be too sluggish for the long sections of tarseal & gravel roads. I opted for his Noroco cyclocross bike, with a carbon fibre frame, disc brakes, knobbly tires and a frame pack it would be ideally suited for such a jaunt. Some small cuts in the running surface of the back tire had me slightly concerned so I swapped it onto the front where it wouldn’t get such a pounding.
 
 ![](/media/andrew-s-bike.jpg "Weapon of Choice")
 
