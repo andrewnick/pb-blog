@@ -59,6 +59,6 @@ The last couple of years has seen bike packing becoming more popular, I passed a
 
 ![](/media/diary.jpg "Refueling stop")
 
-From here it is just under 30km to complete my loop. There was a tail wind and a slight downhill so I managed good speed even with tired legs.  The biggest issue on this part of the trip is dogs being walked and small children. Apparently neither are meant to be mown down so I do my best to give them a wide berth. All up a great day with 135km covered and about 8 ½  hours away with 6hrs 45 minutes moving time.  Good training for the upcoming race but more importantly a great day out riding through some great scenery.
+From here it is just under 30km to complete my loop. There was a tail wind and a slight downhill so I managed good speed even with tired legs.  The biggest issue on this part of the trip is dogs being walked and small children. Apparently neither are meant to be mown down so I do my best to give them a wide berth. All up a great day with 135km covered and about 8 ½  hours away with 6hrs 45 minutes moving time.  Good training for the upcoming race, which I managed a sub 3 hour time, but more importantly a great day out riding through some great scenery.
 
 ![](/media/remutaka-incline-map.jpg "The last 55km")
