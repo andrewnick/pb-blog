@@ -8,6 +8,8 @@ I didn’t get my summer bikepacking trip this year so with Covid-19 closing Cap
 
 The planned route was to Piopio, Okura, Mokau then back via western roads to Ngarawahia and then home covering mostly back roads with plenty of gravel and climbing. Good options for accommodation and eating and with reasonable weather predicted. Surely I could cut out the distance in less days…..
 
+![](/media/pb-bike.jpg)
+
 Over all distance biked: 534km with 7931 metres ascended. Recorded on Strava but I had issues with consistency and battery life on my phone so these figures are from my Garmin Dakota GPS.
 
 Day 1:  Cambridge to Piopio via Waitomo
