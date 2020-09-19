@@ -36,8 +36,6 @@ Piopio is home of the Fat Pigeon which was unfortunately closed when I got in. A
 
 There seemed to be a 2 semi-permanent residents in their motorhomes, 2 more came in for the night and one departed but not before unloading on me more dribble than I’ve heard for a while. Beneath it all he seemed a lonely soul, no wonder though as he seemed to have lost the ability to stop talking, to top it off he had a sick dog with him who took advantage of my distraction and laid on my sleeping bag & mat leaving some dampness behind.
 
-
-
 Day 2: Piopio to Mokau via Ohura
 
 Distance: 134km	Ascent: 1711m
