@@ -73,3 +73,41 @@ VISION THE PEOPLE PERISH
 With the Mokau river near by white baiters inhabit the place during the season. A good sea was pounding the coast and the rain had cleared although Mt Taranaki was still under cloud. Dusk forced me inside and with no TV and as I travel light I don’t carry reading material. I was left to read trip reports in the Motor Caravan Association magazines left by previous travellers. 
 
 ![](/media/mokau-sea-view.jpg)
+
+Day 3:  Mokau to Te Anga via Waikawau tunnel
+
+Distance: 83.8km	Ascent: 1282m
+
+Time(moving): 4hr 25m	Moving average: 18.9km/hr
+
+A nice day dawned and this was to be my shortest day. The first 6km run along the highway was as usual, hairy with a few trucks and not a big shoulder. A southerly tail wind meant this part was soon over.  White baiters were out in force but the Awakino River is a bit discoloured.
+
+![](/media/awakino-river-whitebaiters.jpg)
+
+My route took a left turn off SH3 and it was good to be onto the road less travelled, in fact most of the back roads I followed on this trip were very quiet with 1 to 2 vehicles per hour or less.  Along the valley here the farming seems marginal and there is evidence of farm sales to forestry companies with plenty of mature pines and more being planted. Despite being very quiet there is no gravel until I reach Whareorino School where the sign says 5km to the Waikawau Tunnel. Friends had recommended this side trip and it was well worth it. I stopped to talk to a farmer & her worker who were trying to track down a water blockage. While this area has nice flat farm land she lamented the sale of more hilly marginal farms to convert to trees taking families from these communities eventually closing schools.
+
+![](/media/waikawau-tunnel.jpg)
+
+Waikawau Tunnel was made in 1911 by three men armed only with picks and shovels. It was constructed so cattle could be driven from a station further north, down the beach then back out at this point. Even though it is through sandstone at 50m long and wide enough to get a decent set of bull horns through it must have taken some work. 
+
+![](/media/waikawau-tunnel-exit.jpg)
+
+![](/media/waikawau-carpark.jpg)
+
+A couple in a camper paused for a chat, they had passed me before and were heading to Marakopa for the night. She had survived some heart troubles and were making the most of her now better health. There were a pair of electric bikes stashed on the camper, so good to see people taking the opportunity afforded by these bikes, even though one is not on my wish list. A local driving down from the hill above recommended that we go up to take in the view. The road was tar sealed which, in hind sight should have warned me about how steep the gradient turned out to be. Fully ridable, just!  I quickly gained 100m to enjoy the great views up & down the coast as seen in the pictures below.
+
+![](/media/waikawau-hill-view.jpg)
+
+![](/media/waikwau-hill-view1.jpg)
+
+The next 10km would see me climb 300m, leaving farmland again for a nice ride through bush. The day was warm in the sun but with the southerly wind the shaded corners were still cold so the big descent was cold especially travelling at over 50km/hr.
+
+The gravel started again but was in good shape with a slight downhill so speed was good until I reached the last hill of the day at Kiritehere. There is an old school here which I ran a camp at years back but it seems deserted now. I didn’t go the 2 km down to the beach but the sandstone rocks are full of marine fossils. At the top of a quick 100m climb I’m greeted with views of the small costal settlement of Marakopa. 
+
+![](/media/marokopa-1.jpg)
+
+Marakopa has a marae on the northern side of the Marakopa River and seems to have been a timber town in the 19th century, the area boasting at one stage a dairy factory, flax mill, school and post office but now all gone, there is a campground which I was going to stay at but I have friends farming a few km up the road near Te Anga so taking advantage of the now westerly wind I followed the meandering Marakopa River along the river flats to their place. In the distance I saw a couple of cyclists approach but with making such good speed I didn’t stop, it was the campervan couple out for an afternoon ride, I bet they were glad of their motors as they were pushing into a good breeze.
+
+Castle Crag is an imposing series of limestone cliffs that dominate the scenery above the Marakopa River as it wends its way toward Te Anga then back to the impressive Marakopa Falls. The farm takes its name from this crag. It is run by friends who have turned it to an organic enterprise and also run an Air BnB. My first connection with them was visiting them for Guy Fawkes night with a youth group and families. The day consisted of 4x4ing in a Unimog with the kids sliding around on the steel deck as we traversed various obstacles, possum bashing and finally the bonfire where our faithful hound, Rex, showed his true Jack Russel metal by attacking any live firework he could get his jaws on. He was banished to a car to the smell of singed hair, protesting all the way!
+
+Simeon is now married with 3 great kids so may have settled down although when I arrived he was busy on a small digger with his youngest on his knee. It was a delight to stay, the highlight being able to read bedtime stories to the kids before I retired for the night.
