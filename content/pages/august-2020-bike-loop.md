@@ -2,7 +2,7 @@
 template: page
 title: August 2020 Bike Loop
 slug: 'Piopio to Ohura, Mokau, Raglan then home'
-draft: false
+draft: true
 ---
 I didn’t get my summer bikepacking trip this year so with Covid-19 closing Capernwray and some time available an early spring trip proved too tempting. The initial plan was to leave after Lucas’ first birthday in West Auckland travelling from Pukekohe as Glenys was also going to be on a school hockey tournament there. For a while I’ve wanted to do a loop taking in Port Waikato then down the coast to Mokau coming back via Okura & Piopio.  Once again the virus put a spanner in the works with Auckland being in level 3 lockdown and all parties being postponed. Hockey was transferred to The Mount so my shuttle option was no longer available so it was back to the planning notebook. Reverse the direction of travel but leaving from home seemed to be very feasible.
 
