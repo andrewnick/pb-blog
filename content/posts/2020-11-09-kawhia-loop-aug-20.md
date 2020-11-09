@@ -16,11 +16,11 @@ August 21st 2020
 
 Distance:	107km		Moving time: 6hrs 54	Ascent:  2092m
 
+![](/media/map-oto.jpg)
+
 Wanting to make the most of my post Covid bike fitness, I decided to extend the Waikato roads I have travelled on.  I prefer round trips and am very happy on gravel so a loop from Otorohanga over the hills toward Kawhai for a pie then back. The weather forecast wasn’t great with the only predicted thing not to appear was the thunderstorms. 
 
 ![](/media/weather-forecast.png)
-
-
 
 There was going to be on a lot of gravel so I took my mountain bike. With the condition of the roads I should have taken my cross bike as it is faster & more comfortable. The ride up Honikiwi Road was pleasant farmland with the real climbing starting after 20km as I hit the bush and the gravel. Intermittent showers kept me cool and as I got onto the tops I started to feel the strong westerly wind. One particularly heavy shower had me sheltering in a roadside ditch under a convenient Mahoe.  I try to leave my rain jacket off for as long as possible as sweat gets you as wet as rain on a climb. I have a light weight Ground Effects coat that works well although on one trip in torrential rain I found that when travelling at 55km/hr the water drove in around the hood and eventually got me pretty wet. 
 
@@ -33,8 +33,6 @@ I now headed north along the range that separates the West Coast from the Waikat
 My initial plan had been to ride around under Mt Pirongia on Pirongia West Rd and back for a pie at Oparau. I instead took the shorter option and headed down Okupata Rd with a descent of 500m in the 16km. It was all gravel and into a stiff wind so not as fast as I would have liked. 
 
 ![](/media/from-the-top.jpg)
-
-
 
 ![](/media/intersection-1.jpg)
 
