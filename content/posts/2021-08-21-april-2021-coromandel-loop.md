@@ -3,7 +3,7 @@ template: post
 title: April 2021 Coromandel Loop
 zoom: 12
 slug: Coromandel Loop
-draft: true
+draft: false
 date: 2021-08-21T09:07:28.282Z
 description: >-
   3 day ride from Thames to Coville around the top & back via Coromandel
