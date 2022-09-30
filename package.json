@@ -43,7 +43,7 @@
     "classnames": "^2.2.6",
     "codecov": "^3.6.1",
     "crypto": "^1.0.1",
-    "d3-color": "^1.4.0",
+    "d3-color": "^3.1.0",
     "deck.gl": "^7.3.6",
     "dotenv": "^8.2.0",
     "gatsby": "^2.18.6",
